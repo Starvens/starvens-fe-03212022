@@ -1,13 +1,20 @@
-import React from 'react'
-import {Box} from '@mui/material'
+import React from "react";
+import { Box } from "@mui/material";
 
 const HoverMenu = (props) => {
-    const items = props.options.map(x => <div>{{x}}</div>)
+  const items = props.options.map((x) => <div key={x}>{x}</div>);
   return (
-      <Box>
-         {{items}} 
-      </Box>
-  )
-}
+    <Box
+      sx={{
+        display: "flex",
+        position: "absolute",
+        flexDirection: "column",
+        backgroundColor: "red",
+      }}
+    >
+      {items}
+    </Box>
+  );
+};
 
-export default HoverMenu
+export default HoverMenu;

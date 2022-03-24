@@ -4,6 +4,11 @@ import HoverMenu from "./HoverMenu";
 
 const NavBar = () => {
   const x = ['first', 'second']
+  const menuOptions = {
+    'products': ['Text to Audio', 'Audio To Text'],
+    'company': ['About', 'Contact'],
+    'signin': ['Signin', 'Create Account']
+  }
   return (
     <Box sx={{}}>
       <AppBar
@@ -73,7 +78,8 @@ const NavBar = () => {
                   fontFamily: "Lucida Sans",
                 }}
               >
-                Services
+                Products
+                <HoverMenu options={menuOptions.products}></HoverMenu>
               </Typography>
               <Typography
                 sx={{
@@ -94,6 +100,7 @@ const NavBar = () => {
                 }}
               >
                 Company
+                <HoverMenu options={menuOptions.company}></HoverMenu>
               </Typography>
             </Box>
             <Box sx={{ marginLeft: "5rem" }}>
@@ -118,6 +125,7 @@ const NavBar = () => {
                 }}
               >
                 Sign in
+                <HoverMenu options={menuOptions.signin} ></HoverMenu>
               </Typography>
             </Box>
           </Box>
