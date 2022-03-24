@@ -1,7 +1,9 @@
 import React from "react";
 import { AppBar, Box, OutlinedInput, Toolbar, Typography } from "@mui/material";
+import HoverMenu from "./HoverMenu";
 
 const NavBar = () => {
+  const x = ['first', 'second']
   return (
     <Box sx={{}}>
       <AppBar
@@ -57,9 +59,11 @@ const NavBar = () => {
                   marginLeft: "2rem",
                   fontSize: "20px",
                   fontFamily: "Lucida Sans",
+                  position: "relative"
                 }}
               >
                 Home
+                <HoverMenu options={x} ></HoverMenu>
               </Typography>
               <Typography
                 sx={{
