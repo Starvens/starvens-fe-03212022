@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { AppBar, Box, OutlinedInput, Toolbar, Typography } from "@mui/material";
 import HoverMenu from "./HoverMenu";
 
@@ -9,6 +9,7 @@ const NavBar = () => {
     'company': ['About', 'Contact'],
     'signin': ['Signin', 'Create Account']
   }
+  const [navMenu, setNavMenu] = useState({ 'products': false, 'company': false, 'signin': false })
   return (
     <Box sx={{}}>
       <AppBar
@@ -59,18 +60,8 @@ const NavBar = () => {
             </Box>
             <Box sx={{ display: "flex", marginLeft: "3rem" }}>
               <Typography
-                sx={{
-                  fontWeight: "bold",
-                  marginLeft: "2rem",
-                  fontSize: "20px",
-                  fontFamily: "Lucida Sans",
-                  position: "relative"
-                }}
-              >
-                Home
-                <HoverMenu options={x} ></HoverMenu>
-              </Typography>
-              <Typography
+                onMouseEnter={() => setNavMenu({ ...navMenu, 'products': true })}
+                onMouseLeave={() => setNavMenu({ ...navMenu, 'products': false })}
                 sx={{
                   fontWeight: "bold",
                   marginLeft: "2rem",
@@ -79,7 +70,7 @@ const NavBar = () => {
                 }}
               >
                 Products
-                <HoverMenu options={menuOptions.products}></HoverMenu>
+                {navMenu.products ? <HoverMenu options={menuOptions.products}></HoverMenu> : null}
               </Typography>
               <Typography
                 sx={{
@@ -92,6 +83,8 @@ const NavBar = () => {
                 Why Starvens
               </Typography>
               <Typography
+                onMouseEnter={() => setNavMenu({ ...navMenu, 'company': true })}
+                onMouseLeave={() => setNavMenu({ ...navMenu, 'company': false })}
                 sx={{
                   fontWeight: "bold",
                   marginLeft: "2rem",
@@ -100,7 +93,7 @@ const NavBar = () => {
                 }}
               >
                 Company
-                <HoverMenu options={menuOptions.company}></HoverMenu>
+                {navMenu.company ? <HoverMenu options={menuOptions.products}></HoverMenu> : null}
               </Typography>
             </Box>
             <Box sx={{ marginLeft: "5rem" }}>
@@ -117,6 +110,8 @@ const NavBar = () => {
             </Box>
             <Box sx={{ marginLeft: "2rem" }}>
               <Typography
+                onMouseEnter={() => setNavMenu({ ...navMenu, 'signin': true })}
+                onMouseLeave={() => setNavMenu({ ...navMenu, 'signin': false })}
                 sx={{
                   fontWeight: "bold",
                   marginLeft: "2rem",
@@ -125,7 +120,7 @@ const NavBar = () => {
                 }}
               >
                 Sign in
-                <HoverMenu options={menuOptions.signin} ></HoverMenu>
+                {navMenu.signin ? <HoverMenu options={menuOptions.products}></HoverMenu> : null}
               </Typography>
             </Box>
           </Box>

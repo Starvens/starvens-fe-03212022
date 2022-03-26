@@ -1,6 +1,6 @@
 import { Box } from "@mui/system";
 import React from "react";
-import {Typography} from '@mui/material'
+import { Typography } from '@mui/material'
 
 const PdfConversionImage = () => {
   return (
@@ -11,7 +11,11 @@ const PdfConversionImage = () => {
         sx={{
           fontWeight: "bold",
           marginLeft: "16rem",
-          border: "5px solid red",
+          backgroundColor: "#f8f8f8",
+          padding: '0.3rem',
+          cursor: 'pointer',
+          zIndex: '3',
+          borderRadius: '1rem',
           fontSize: "28px",
           height: '3rem',
           color: "#355E3B",
