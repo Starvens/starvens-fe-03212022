@@ -13,14 +13,17 @@ const NavBar = () => {
   return (
     <Box sx={{}}>
       <AppBar
-        position="static"
+        position="fixed"
         sx={{
-          height: "3rem",
+          // height: "3rem",
           justifyContent: "center",
           background: "transparent",
-          marginTop: 3,
+          // background: '#C1E1C1CC 0% 0% no-repeat padding-box;',
+          // background: '#F8F8F8',
+          // marginTop: 3,
+          padding: 2,
           color: "#355E3B",
-          elevation: "6",
+          // elevation: "6",
           fontFamily: "Lucida Sans",
           boxShadow: "0px 0px 0px 0px",
           border: "none",

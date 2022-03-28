@@ -5,7 +5,7 @@ import Typewriter from "typewriter-effect";
 
 const LandingPagePPT1 = () => {
   return (
-    <Box sx={{ marginLeft: "16rem", marginTop: "2rem" }}>
+    <Box sx={{ marginLeft: "16rem", marginTop: "8rem" }}>
       <Typography
         sx={{
           fontSize: "71px",
