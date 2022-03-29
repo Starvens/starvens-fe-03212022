@@ -15,9 +15,10 @@ const NavBar = () => {
       <AppBar
         position="fixed"
         sx={{
-          // height: "3rem",
+          height: "4rem",
           justifyContent: "center",
-          background: "transparent",
+          // background: "transparent",
+          background: "#C1E1C1",
           // background: '#C1E1C1CC 0% 0% no-repeat padding-box;',
           // background: '#F8F8F8',
           // marginTop: 3,
@@ -34,7 +35,7 @@ const NavBar = () => {
           <Box sx={{ display: "flex" }}>
             <Box sx={{ marginRight: "4rem", display: "flex" }}>
               <Box>
-                <img src="/Starvens_Logo.png" width="38" height="70"></img>
+                <img src="/Starvens_Logo.png" width="38" height="50"></img>
               </Box>
               <Box sx={{ padding: 0, margin: 0 }}>
                 <Typography

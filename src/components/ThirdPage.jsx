@@ -31,6 +31,7 @@ export const ThirdPage = () => {
                     </Typography>
                 </Box>
                 <Box>
+                    <img src='/StoreAndShare.png' height='400' width='550'></img>
                 </Box>
             </Box>
             <Box sx={{background: '#355E3B 0% 0% no-repeat padding-box'}}>
