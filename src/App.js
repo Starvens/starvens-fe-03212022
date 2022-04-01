@@ -12,6 +12,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import { Register } from "./components/Register";
 import { Login } from "./components/Login";
+import UserFileUpload from "./components/user-file-upload/UserFileUpload";
+import UserLeftNav from "./components/user-file-upload/UserLeftNav";
 
 function App() {
   const theme = createTheme({
@@ -35,6 +37,8 @@ function App() {
           <Route path="/" element={<LandingPage />}> </Route>
           <Route path="register" element={<Register></Register>}></Route>
           <Route path="login" element={<Login></Login>}></Route>
+          <Route path="/user" element={<UserFileUpload></UserFileUpload>}></Route>
+          <Route path="/user2" element={<UserLeftNav />}></Route>
 
         </Routes>
         {/* <FirstPage></FirstPage>
