@@ -7,8 +7,9 @@ const HoverMenu = (props) => {
     <Box
       sx={{
         display: "flex",
+        background: '#C1E1C1',
         position: "absolute",
-        top: '9px',
+        top: '3rem',
         flexDirection: "column",
         margin: 0,
         padding: '1rem',

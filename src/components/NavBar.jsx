@@ -15,7 +15,7 @@ const NavBar = () => {
       <AppBar
         position="fixed"
         sx={{
-          height: "4rem",
+          height: "5rem",
           justifyContent: "center",
           // background: "transparent",
           background: "#C1E1C1",
@@ -35,31 +35,7 @@ const NavBar = () => {
           <Box sx={{ display: "flex" }}>
             <Box sx={{ marginRight: "4rem", display: "flex" }}>
               <Box>
-                <img src="/Starvens_Logo.png" width="38" height="50"></img>
-              </Box>
-              <Box sx={{ padding: 0, margin: 0 }}>
-                <Typography
-                  sx={{
-                    fontWeight: "bold",
-                    marginLeft: "2rem",
-                    fontSize: "28px",
-                    fontFamily: "Playfair Display",
-                  }}
-                >
-                  STARVENS
-                </Typography>
-                <Typography
-                  sx={{
-                    fontWeight: "bold",
-                    marginLeft: "2rem",
-                    textAlign: "justify",
-                    width: "143px",
-                    fontSize: "8px",
-                    fontFamily: "Maiandra GD",
-                  }}
-                >
-                  one place to all
-                </Typography>
+                <img src="HeaderLogoAndName.png" width="193" height="70"></img>
               </Box>
             </Box>
             <Box sx={{ display: "flex", marginLeft: "3rem" }}>
@@ -69,6 +45,7 @@ const NavBar = () => {
                 sx={{
                   fontWeight: "bold",
                   marginLeft: "2rem",
+                  marginTop: "1.5rem",
                   fontSize: "20px",
                   fontFamily: "Lucida Sans",
                 }}
@@ -80,6 +57,7 @@ const NavBar = () => {
                 sx={{
                   fontWeight: "bold",
                   marginLeft: "2rem",
+                  marginTop: "1.5rem",
                   fontSize: "20px",
                   fontFamily: "Lucida Sans",
                 }}
@@ -92,6 +70,7 @@ const NavBar = () => {
                 sx={{
                   fontWeight: "bold",
                   marginLeft: "2rem",
+                  marginTop: "1.5rem",
                   fontSize: "20px",
                   fontFamily: "Lucida Sans",
                 }}
@@ -107,6 +86,7 @@ const NavBar = () => {
                 sx={{
                   "& input": { padding: "4.5px 14px" },
                   borderRadius: "3rem",
+                  marginTop: "1.5rem",
                   borderColor: "#707070",
                   background: "#f8f8f8",
                 }}
@@ -118,7 +98,8 @@ const NavBar = () => {
                 onMouseLeave={() => setNavMenu({ ...navMenu, 'signin': false })}
                 sx={{
                   fontWeight: "bold",
-                  marginLeft: "2rem",
+                  marginLeft: "16rem",
+                  marginTop: "1.5rem",
                   fontSize: "20px",
                   fontFamily: "Lucida Sans",
                 }}

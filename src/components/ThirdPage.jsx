@@ -3,7 +3,7 @@ import React from 'react'
 
 export const ThirdPage = () => {
     return (
-        <Box sx={{ height: '100vh', display: 'grid', gridTemplateRows: '3fr 1fr' }}>
+        <Box sx={{ height: '100vh', display: 'grid', gridTemplateRows: '3fr 1fr', marginTop: '5rem' }}>
             <Box sx={{ display: 'grid', gridTemplateColumns: '3fr 2fr' }}>
                 <Box>
                     <Typography

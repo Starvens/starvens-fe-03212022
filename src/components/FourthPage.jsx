@@ -3,7 +3,7 @@ import React from 'react'
 
 const FourthPage = () => {
     return (
-        <Box sx={{ height: '100vh', display: 'grid', gridTemplateRows: '3fr 1fr', marginTop: '2rem' }}>
+        <Box sx={{ height: '100vh', display: 'grid', gridTemplateRows: '3fr 2fr', marginTop: '2rem' }}>
             <Box sx={{ display: 'grid', gridTemplateColumns: '3fr 2fr' }}>
                 <Box>
                     <Typography
@@ -23,11 +23,11 @@ const FourthPage = () => {
                 </Box>
             </Box>
             <Box sx={{ background: '#355E3B 0% 0% no-repeat padding-box;' }}>
-                <Box sx={{ display: 'flex', marginTop: '1rem' }}>
+                <Box sx={{ display: 'flex', marginTop: '1rem', marginLeft: '3rem'}}>
                     <Box sx={{display: 'flex',  marginRight: '3rem' }}>
-                        <img src='FooterLogo.png'></img>
+                        <img src='FooterLogoAndName.png' height='70' width='181'></img>
                     </Box>
-                    <Box sx={{ marginRight: '5rem' }}>
+                    <Box sx={{ marginRight: '5rem', marginLeft: '3rem' }}>
                         <Typography
                             sx={{
                                 fontSize: "28px",
@@ -78,7 +78,7 @@ const FourthPage = () => {
                                 fontFamily: "Montserrat",
                             }}
                         >
-                            text to audio
+                            Home
                         </Typography>
                         <Typography
                             sx={{
@@ -88,7 +88,17 @@ const FourthPage = () => {
                                 fontFamily: "Montserrat",
                             }}
                         >
-                            audio to text
+                            About
+                        </Typography>
+                        <Typography
+                            sx={{
+                                fontSize: "21px",
+                                color: "#f8f8f8",
+                                fontWeight: "bold",
+                                fontFamily: "Montserrat",
+                            }}
+                        >
+                            Terms & Conditions
                         </Typography>
                     </Box>
                     <Box>
@@ -110,17 +120,7 @@ const FourthPage = () => {
                                 fontFamily: "Montserrat",
                             }}
                         >
-                            text to audio
-                        </Typography>
-                        <Typography
-                            sx={{
-                                fontSize: "21px",
-                                color: "#f8f8f8",
-                                fontWeight: "bold",
-                                fontFamily: "Montserrat",
-                            }}
-                        >
-                            audio to text
+                        Contact
                         </Typography>
                     </Box>
                 </Box>
