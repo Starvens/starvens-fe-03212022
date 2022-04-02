@@ -27,6 +27,11 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
+import CircularProgress, {
+  circularProgressClasses,
+} from '@mui/material/CircularProgress';
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+import FileUploadBox from './FileUploadBox';
 
 const drawerWidth = 240;
 const icons = [<HomeIcon />, <FolderIcon />, <HistoryIcon />, <ShareIcon />, <DeleteIcon />]
@@ -56,12 +61,25 @@ const closedMixin = (theme) => ({
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
-    backgroundColor: theme.palette.primary.main,
+  backgroundColor: theme.palette.primary.main,
   alignItems: 'center',
   // justifyContent: 'flex-end',
   padding: theme.spacing(0, 1),
   // necessary for content to be below app bar
   // ...theme.mixins.toolbar,
+}));
+
+const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
+  height: 10,
+  borderRadius: 5,
+  [`&.${linearProgressClasses.colorPrimary}`]: {
+    backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+  },
+  [`& .${linearProgressClasses.bar}`]: {
+    borderRadius: 5,
+    // backgroundColor: theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8',
+    backgroundColor: theme.palette.primary.main,
+  },
 }));
 
 const AppBar = styled(MuiAppBar, {
@@ -113,10 +131,10 @@ export default function UserLeftNav() {
   };
 
   return (
-    <Box sx={{ display: 'flex'}}>
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar sx={{height: 70}}>
+        <Toolbar sx={{ height: 70 }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -161,7 +179,7 @@ export default function UserLeftNav() {
           </Box>
         </Toolbar>
       </AppBar>
-      <Drawer  variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <img src='/Starvens_Logo.png' height='70' width='38'></img>
           {/* <Typography
@@ -174,8 +192,8 @@ export default function UserLeftNav() {
           >
             StarvensDrive
           </Typography> */}
-          <IconButton sx={{marginLeft: 'auto'}} onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+          <IconButton sx={{ marginLeft: 'auto' }} onClick={handleDrawerClose}>
+            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon style={{ color: '#F8F8F8' }} />}
           </IconButton>
         </DrawerHeader>
         <Divider />
@@ -203,9 +221,69 @@ export default function UserLeftNav() {
             </ListItemButton>
           ))}
         </List>
+        <BorderLinearProgress sx={{ margin: '1rem', marginTop: 'auto' }} variant="determinate" value={50} />
+        {open ? <Typography
+          sx={{
+            font: 'normal normal bold 16px/19px Montserrat;',
+            paddingBottom: '3rem',
+            color: '#355E3B',
+            textAlign: "center"
+          }}
+        >
+          100MB used of 1 GB
+        </Typography> : null}
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3, height: '100vh', backgroundColor: theme.palette.primary.light}}>
-        {/* <DrawerHeader /> */}
+      <Box component="main" sx={{ flexGrow: 1, p: 3, height: '100vh', marginTop: '4.2rem', backgroundColor: theme.palette.primary.light }}>
+        {/* <Box component="main" sx={{ p: 3, height: '100vh', marginTop: '4.2rem', backgroundColor: theme.palette.primary.light }}> */}
+        <Box>
+          <Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
+            <Typography
+              sx={{
+                fontWeight: "bold",
+                // marginLeft: "16rem",
+                width: '16rem',
+                backgroundColor: "#f8f8f8",
+                padding: '0.3rem',
+                cursor: 'pointer',
+                // zIndex: '3',
+                borderRadius: '1rem',
+                textAlign: 'center',
+                fontSize: "16px",
+                // height: '3rem',
+                color: "#355E3B",
+                fontFamily: "Montserrat",
+              }}
+            >
+              Text To Audio
+            </Typography>
+            <Typography
+              sx={{
+                fontWeight: "bold",
+                // marginLeft: "16rem",
+                width: '16rem',
+                backgroundColor: "#f8f8f8",
+                textAlign: 'center',
+                padding: '0.3rem',
+                cursor: 'pointer',
+                // zIndex: '3',
+                borderRadius: '1rem',
+                fontSize: "16px",
+                // height: '3rem',
+                color: "#355E3B",
+                fontFamily: "Montserrat",
+              }}
+            >
+              Audio To Text
+            </Typography>
+          </Box>
+          <Box>
+            {/* <Box sx={{ height: '13rem', margin: '1rem', backgroundColor: theme.palette.primary.main }}> </Box> */}
+            <FileUploadBox></FileUploadBox>
+
+          </Box>
+          <Box></Box>
+          <Box></Box>
+        </Box>
       </Box>
     </Box>
   );
