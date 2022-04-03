@@ -32,6 +32,7 @@ import CircularProgress, {
 } from '@mui/material/CircularProgress';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import FileUploadBox from './FileUploadBox';
+import FeatureDescription from './FeatureDescription';
 
 const drawerWidth = 240;
 const icons = [<HomeIcon />, <FolderIcon />, <HistoryIcon />, <ShareIcon />, <DeleteIcon />]
@@ -233,7 +234,7 @@ export default function UserLeftNav() {
           100MB used of 1 GB
         </Typography> : null}
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3, height: '100vh', marginTop: '4.2rem', backgroundColor: theme.palette.primary.light }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 3, height: '91vh', marginTop: '4.2rem', backgroundColor: theme.palette.primary.light }}>
         {/* <Box component="main" sx={{ p: 3, height: '100vh', marginTop: '4.2rem', backgroundColor: theme.palette.primary.light }}> */}
         <Box>
           <Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
@@ -277,9 +278,7 @@ export default function UserLeftNav() {
             </Typography>
           </Box>
           <Box>
-            {/* <Box sx={{ height: '13rem', margin: '1rem', backgroundColor: theme.palette.primary.main }}> </Box> */}
             <FileUploadBox></FileUploadBox>
-
           </Box>
           <Box></Box>
           <Box></Box>
