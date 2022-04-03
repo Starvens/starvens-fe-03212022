@@ -8,6 +8,7 @@ const PdfConversionImage = () => {
       <img src="/Group7.png" height="200" width="400" alt=""></img>
 
       <Typography
+        onClick={() => window.scrollTo(0,900)}
         sx={{
           fontWeight: "bold",
           marginLeft: "16rem",

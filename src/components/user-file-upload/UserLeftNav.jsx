@@ -32,7 +32,8 @@ import CircularProgress, {
 } from '@mui/material/CircularProgress';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import FileUploadBox from './FileUploadBox';
-import FeatureDescription from './FeatureDescription';
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 const drawerWidth = 240;
 const icons = [<HomeIcon />, <FolderIcon />, <HistoryIcon />, <ShareIcon />, <DeleteIcon />]
@@ -122,6 +123,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function UserLeftNav() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate()
+  const location = useLocation();
+  const featureType = location.state.data
+  const [featureSelected, setFeatureSelected] = React.useState({ feature: featureType })
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -148,7 +153,7 @@ export default function UserLeftNav() {
           >
             <MenuIcon />
           </IconButton>
-          <img hidden={open} src='/Starvens_Logo.png' height='70' width='38'></img>
+          <img hidden={open} style={{ cursor: 'pointer' }} onClick={() => navigate('/')} src='/Starvens_Logo.png' height='70' width='38'></img>
           <Typography
             sx={{
               font: 'normal normal bold 28px/34px Montserrat',
@@ -182,7 +187,7 @@ export default function UserLeftNav() {
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <img src='/Starvens_Logo.png' height='70' width='38'></img>
+          <img style={{ cursor: 'pointer' }} onClick={() => navigate('/')} src='/Starvens_Logo.png' height='70' width='38'></img>
           {/* <Typography
             sx={{
               font: 'normal normal bold 28px/34px Montserrat',
@@ -246,6 +251,8 @@ export default function UserLeftNav() {
                 backgroundColor: "#f8f8f8",
                 padding: '0.3rem',
                 cursor: 'pointer',
+                // boxShadow: featureType == 'textToAudio' ? '0px 0px 0px 2.5px purple inset, 0px 0px 0px 5px $cyan' : 'none',
+                border: featureSelected.feature == 'textToAudio' ? `5px solid ${theme.palette.primary.main}` : 'none',
                 // zIndex: '3',
                 borderRadius: '1rem',
                 textAlign: 'center',
@@ -254,6 +261,7 @@ export default function UserLeftNav() {
                 color: "#355E3B",
                 fontFamily: "Montserrat",
               }}
+              onClick={() => setFeatureSelected({ feature: 'textToAudio' })}
             >
               Text To Audio
             </Typography>
@@ -264,6 +272,8 @@ export default function UserLeftNav() {
                 width: '16rem',
                 backgroundColor: "#f8f8f8",
                 textAlign: 'center',
+                // boxShadow: featureType == 'audioToText' ? '0px 0px 0px 2.5px white inset, 0px 0px 0px 5px $cyan' : 'none',
+                border: featureSelected.feature == 'audioToText' ? `5px solid ${theme.palette.primary.main}` : 'none',
                 padding: '0.3rem',
                 cursor: 'pointer',
                 // zIndex: '3',
@@ -273,12 +283,13 @@ export default function UserLeftNav() {
                 color: "#355E3B",
                 fontFamily: "Montserrat",
               }}
+              onClick={() => setFeatureSelected({ feature: 'audioToText' })}
             >
               Audio To Text
             </Typography>
           </Box>
           <Box>
-            <FileUploadBox></FileUploadBox>
+            <FileUploadBox featureType={location.state.data}></FileUploadBox>
           </Box>
           <Box></Box>
           <Box></Box>

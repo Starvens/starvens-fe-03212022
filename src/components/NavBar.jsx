@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AppBar, Box, OutlinedInput, Toolbar, Typography } from "@mui/material";
 import HoverMenu from "./HoverMenu";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
   const x = ['first', 'second']
@@ -9,7 +10,9 @@ const NavBar = () => {
     'company': ['About', 'Contact'],
     'signin': ['Signin', 'Create Account']
   }
+  const navigate = useNavigate();
   const [navMenu, setNavMenu] = useState({ 'products': false, 'company': false, 'signin': false })
+
   return (
     <Box sx={{}}>
       <AppBar
@@ -34,8 +37,8 @@ const NavBar = () => {
         <Toolbar sx={{ border: "none", outline: "none" }}>
           <Box sx={{ display: "flex" }}>
             <Box sx={{ marginRight: "4rem", display: "flex" }}>
-              <Box>
-                <img src="HeaderLogoAndName.png" width="193" height="70"></img>
+              <Box sx={{cursor: 'pointer'}}>
+                <img onClick={() => window.location.reload()} src="HeaderLogoAndName.png" width="193" height="70"></img>
               </Box>
             </Box>
             <Box sx={{ display: "flex", marginLeft: "3rem" }}>

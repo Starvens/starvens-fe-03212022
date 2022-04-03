@@ -32,9 +32,9 @@ const FileUploadBox = (props) => {
     };
     return (
         <Box>
-            <Box sx={{ height: '13rem', backgroundColor: theme.palette.primary.main, borderRadius: '2rem', margin: '1rem' }}>
+            {/* <Box sx={{ height: '13rem', backgroundColor: theme.palette.primary.main, borderRadius: '2rem', margin: '1rem'}}> */}
                 <UploadOptions type="Text to Audio"></UploadOptions>
-            </Box>
+            {/* </Box> */}
             <Box sx={{ display: 'flex' }}>
                 <List
                     sx={{
@@ -90,7 +90,7 @@ const FileUploadBox = (props) => {
                         </Select>
                     </ListItem>
                 </List>
-                <Box sx={{marginLeft: 'auto'}}>
+                <Box sx={{ marginLeft: 'auto' }}>
                     <FeatureDescription question={textToAudioQuestion} ans1={textToAudioAns1} ans2={textToAudioAns2}></FeatureDescription>
                 </Box>
             </Box>

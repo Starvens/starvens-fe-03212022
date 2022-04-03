@@ -1,6 +1,7 @@
 
 import { Box, Button, Typography, Divider } from '@mui/material'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const ConversionLinks2 = () => {
     const boxShadow = 'rgb(38, 57, 77) 0px 20px 30px -10px'
@@ -50,24 +51,26 @@ const ConversionLinks2 = () => {
                         <Box>
                             <img src='TextToAudioLeft.png' width='226' height='398'></img>
                         </Box>
-                        <Box sx={{ padding: '2rem' }}>
-                            <Typography
-                                sx={{
-                                    fontWeight: "bold",
-                                    backgroundColor: "#f8f8f8",
-                                    padding: '0.3rem',
-                                    cursor: 'pointer',
-                                    zIndex: '3',
-                                    borderRadius: '1rem',
-                                    fontSize: "28px",
-                                    height: '3rem',
-                                    color: "#355E3B",
-                                    fontFamily: "Montserrat",
-                                }}
-                            >
-                                Start Converting
-                            </Typography>
-                        </Box>
+                        <Link to="/user2" style={{ textDecoration: 'none' }} state={{ data: 'textToAudio' }}>
+                            <Box sx={{ padding: '2rem' }}>
+                                <Typography
+                                    sx={{
+                                        fontWeight: "bold",
+                                        backgroundColor: "#f8f8f8",
+                                        padding: '0.3rem',
+                                        cursor: 'pointer',
+                                        zIndex: '3',
+                                        borderRadius: '1rem',
+                                        fontSize: "28px",
+                                        height: '3rem',
+                                        color: "#355E3B",
+                                        fontFamily: "Montserrat",
+                                    }}
+                                >
+                                    Start Converting
+                                </Typography>
+                            </Box>
+                        </Link>
                         <Box sx={{ height: '117', width: '144' }}>
                             <img src='TextToAudioRight.png' height='117' width='144'></img>
                         </Box>
@@ -104,24 +107,26 @@ const ConversionLinks2 = () => {
                         <Box>
                             <img src='AudioToTextLeft.png' width='197' height='240'></img>
                         </Box>
-                        <Box sx={{}}>
-                            <Typography
-                                sx={{
-                                    fontWeight: "bold",
-                                    backgroundColor: "#f8f8f8",
-                                    padding: '0.3rem',
-                                    cursor: 'pointer',
-                                    zIndex: '3',
-                                    borderRadius: '1rem',
-                                    fontSize: "28px",
-                                    height: '3rem',
-                                    color: "#355E3B",
-                                    fontFamily: "Montserrat",
-                                }}
-                            >
-                                Start Converting
-                            </Typography>
-                        </Box>
+                        <Link to="/user2" style={{ textDecoration: 'none' }} state={{ data: 'audioToText' }}>
+                            <Box sx={{}}>
+                                <Typography
+                                    sx={{
+                                        fontWeight: "bold",
+                                        backgroundColor: "#f8f8f8",
+                                        padding: '0.3rem',
+                                        cursor: 'pointer',
+                                        zIndex: '3',
+                                        borderRadius: '1rem',
+                                        fontSize: "28px",
+                                        height: '3rem',
+                                        color: "#355E3B",
+                                        fontFamily: "Montserrat",
+                                    }}
+                                >
+                                    Start Converting
+                                </Typography>
+                            </Box>
+                        </Link>
                         <Box>
                             <img src='AudioToTextRight.png' height='384' width='196'></img>
                         </Box>
