@@ -33,7 +33,7 @@ const FileUploadBox = (props) => {
     return (
         <Box>
             {/* <Box sx={{ height: '13rem', backgroundColor: theme.palette.primary.main, borderRadius: '2rem', margin: '1rem'}}> */}
-                <UploadOptions type="Text to Audio"></UploadOptions>
+            <UploadOptions type="Text to Audio"></UploadOptions>
             {/* </Box> */}
             <Box sx={{ display: 'flex' }}>
                 <List
@@ -94,23 +94,6 @@ const FileUploadBox = (props) => {
                     <FeatureDescription question={textToAudioQuestion} ans1={textToAudioAns1} ans2={textToAudioAns2}></FeatureDescription>
                 </Box>
             </Box>
-            <Typography
-                sx={{
-                    font: 'normal normal bold 24px/29px Montserrat',
-                    backgroundColor: "#f8f8f8",
-                    padding: '0.3rem',
-                    cursor: 'pointer',
-                    width: '8rem',
-                    textAlign: 'center',
-                    margin: '2rem',
-                    marginLeft: '26rem',
-                    borderRadius: '1rem',
-                    height: '3rem',
-                    color: "#355E3B",
-                }}
-            >
-                Start
-            </Typography>
         </Box>
 
     )

@@ -34,6 +34,7 @@ import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgr
 import FileUploadBox from './FileUploadBox';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
+import InprogressConversion from '../file-conversion-inprogress/InprogressConversion';
 
 const drawerWidth = 240;
 const icons = [<HomeIcon />, <FolderIcon />, <HistoryIcon />, <ShareIcon />, <DeleteIcon />]
@@ -127,6 +128,14 @@ export default function UserLeftNav() {
   const location = useLocation();
   const featureType = location.state.data
   const [featureSelected, setFeatureSelected] = React.useState({ feature: featureType })
+  const [conversionState, setConvState] = React.useState('notStart')
+
+  const makeBackEndCall = async () => {
+    setConvState('inProcess')
+    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+    await sleep(2000)
+    setConvState('opConv')
+  }
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -241,59 +250,78 @@ export default function UserLeftNav() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3, height: '91vh', marginTop: '4.2rem', backgroundColor: theme.palette.primary.light }}>
         {/* <Box component="main" sx={{ p: 3, height: '100vh', marginTop: '4.2rem', backgroundColor: theme.palette.primary.light }}> */}
-        <Box>
-          <Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
-            <Typography
-              sx={{
-                fontWeight: "bold",
-                // marginLeft: "16rem",
-                width: '16rem',
-                backgroundColor: "#f8f8f8",
-                padding: '0.3rem',
-                cursor: 'pointer',
-                // boxShadow: featureType == 'textToAudio' ? '0px 0px 0px 2.5px purple inset, 0px 0px 0px 5px $cyan' : 'none',
-                border: featureSelected.feature == 'textToAudio' ? `5px solid ${theme.palette.primary.main}` : 'none',
-                // zIndex: '3',
-                borderRadius: '1rem',
-                textAlign: 'center',
-                fontSize: "16px",
-                // height: '3rem',
-                color: "#355E3B",
-                fontFamily: "Montserrat",
-              }}
-              onClick={() => setFeatureSelected({ feature: 'textToAudio' })}
-            >
-              Text To Audio
-            </Typography>
-            <Typography
-              sx={{
-                fontWeight: "bold",
-                // marginLeft: "16rem",
-                width: '16rem',
-                backgroundColor: "#f8f8f8",
-                textAlign: 'center',
-                // boxShadow: featureType == 'audioToText' ? '0px 0px 0px 2.5px white inset, 0px 0px 0px 5px $cyan' : 'none',
-                border: featureSelected.feature == 'audioToText' ? `5px solid ${theme.palette.primary.main}` : 'none',
-                padding: '0.3rem',
-                cursor: 'pointer',
-                // zIndex: '3',
-                borderRadius: '1rem',
-                fontSize: "16px",
-                // height: '3rem',
-                color: "#355E3B",
-                fontFamily: "Montserrat",
-              }}
-              onClick={() => setFeatureSelected({ feature: 'audioToText' })}
-            >
-              Audio To Text
-            </Typography>
-          </Box>
+        {conversionState == 'notStart' ?
           <Box>
-            <FileUploadBox featureType={location.state.data}></FileUploadBox>
-          </Box>
-          <Box></Box>
-          <Box></Box>
-        </Box>
+            <Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
+              <Typography
+                sx={{
+                  fontWeight: "bold",
+                  // marginLeft: "16rem",
+                  width: '16rem',
+                  backgroundColor: "#f8f8f8",
+                  padding: '0.3rem',
+                  cursor: 'pointer',
+                  // boxShadow: featureType == 'textToAudio' ? '0px 0px 0px 2.5px purple inset, 0px 0px 0px 5px $cyan' : 'none',
+                  border: featureSelected.feature == 'textToAudio' ? `5px solid ${theme.palette.primary.main}` : 'none',
+                  // zIndex: '3',
+                  borderRadius: '1rem',
+                  textAlign: 'center',
+                  fontSize: "16px",
+                  // height: '3rem',
+                  color: "#355E3B",
+                  fontFamily: "Montserrat",
+                }}
+                onClick={() => setFeatureSelected({ feature: 'textToAudio' })}
+              >
+                Text To Audio
+              </Typography>
+              <Typography
+                sx={{
+                  fontWeight: "bold",
+                  // marginLeft: "16rem",
+                  width: '16rem',
+                  backgroundColor: "#f8f8f8",
+                  textAlign: 'center',
+                  // boxShadow: featureType == 'audioToText' ? '0px 0px 0px 2.5px white inset, 0px 0px 0px 5px $cyan' : 'none',
+                  border: featureSelected.feature == 'audioToText' ? `5px solid ${theme.palette.primary.main}` : 'none',
+                  padding: '0.3rem',
+                  cursor: 'pointer',
+                  // zIndex: '3',
+                  borderRadius: '1rem',
+                  fontSize: "16px",
+                  // height: '3rem',
+                  color: "#355E3B",
+                  fontFamily: "Montserrat",
+                }}
+                onClick={() => setFeatureSelected({ feature: 'audioToText' })}
+              >
+                Audio To Text
+              </Typography>
+            </Box>
+            <Box>
+              <FileUploadBox featureType={location.state.data}></FileUploadBox>
+            </Box>
+            <Box></Box>
+            <Box></Box>
+            <Typography
+              sx={{
+                font: 'normal normal bold 24px/29px Montserrat',
+                backgroundColor: "#f8f8f8",
+                padding: '0.3rem',
+                cursor: 'pointer',
+                width: '8rem',
+                textAlign: 'center',
+                margin: '2rem',
+                marginLeft: '26rem',
+                borderRadius: '1rem',
+                height: '3rem',
+                color: "#355E3B",
+              }}
+              onClick={makeBackEndCall}
+            >
+              Start
+            </Typography>
+          </Box> : <InprogressConversion />}
       </Box>
     </Box>
   );
