@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Typography, TextField, Divider } from '@mui/material'
+import { Box, Typography, TextField, Divider, Button } from '@mui/material'
 import { useTheme } from '@emotion/react'
 import LinearProgress from '@mui/material/LinearProgress';
 import Rating from '@mui/material/Rating';
@@ -36,9 +36,11 @@ const InprogressConversion = () => {
         <Typography sx={{ textAlign: 'center', font: 'normal normal bold 25px/30px Montserrat', color: '#F8F8F8', marginTop: '3rem' }}>please wait until the conversion status updates.</Typography>
       </Box>
 
-      <Box sx={{ width: 1377, height: 250, marginTop: '7rem', backgroundColor: '#F8F8F8' }}>
-        <Typography>Feedback</Typography>
-        <Divider />
+      <Box sx={{ width: '35rem', height: '18rem', marginTop: '7rem', backgroundColor: '#F8F8F8', borderRadius: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: 'auto', marginRight: 'auto', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 4px 12px' }}>
+        <Typography
+          sx={{ font: 'normal normal bold 25px/30px Montserrat', color: '#355E3B' }}
+        >Feedback</Typography>
+        <Divider flexItem />
         <Rating
           name="hover-feedback"
           value={value}
@@ -53,15 +55,18 @@ const InprogressConversion = () => {
           emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
         />
         {value !== null && (
-          <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
+          <Box sx={{ ml: 2, color: theme.palette.primary.main }}>{labels[hover !== -1 ? hover : value]}</Box>
         )}
         <TextField
           id="outlined-multiline-static"
-          label="Multiline"
+          // label="Comments"
           multiline
+          sx={{ padding: '1rem' }}
+          fullWidth
           rows={4}
           placeholder="Optional, any feedback is appreciated"
         />
+        <Button variant='contained'>Submit</Button>
       </Box>
 
     </Box>
