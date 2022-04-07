@@ -27,8 +27,6 @@ const FeedbackForm = () => {
   return (
       <Box
         sx={{
-          width: "80rem",
-          height: "18rem",
           marginTop: "5rem",
           backgroundColor: "#F8F8F8",
           borderRadius: "2rem",
@@ -37,6 +35,7 @@ const FeedbackForm = () => {
           alignItems: "center",
           marginLeft: "auto",
           marginRight: "auto",
+          padding: '1rem',
           boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px",
         }}
       >

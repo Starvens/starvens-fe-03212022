@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -17,9 +17,20 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ReplayIcon from "@mui/icons-material/Replay";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArchiveIcon from "@mui/icons-material/Archive";
+import MediaPlayer from "../output-options/MediaPlayer";
+import GenerateQRCodeTemp from "./GenerateQRCodeTemp";
 
 const ConversionFinished = () => {
   const theme = useTheme();
+  const [modalState, setModalState] = useState({ play: false, qr: false });
+  const [generatedUrl, setUrl] = useState(
+    "https://drive.google.com/file/d/1IDaVVJlRZefP1F0gEnqETqJ14YmuF8aE/view"
+  );
+
+  const handleModalPopUp = (val) => {
+    setModalState({ ...modalState, [val]: !modalState[val] });
+  };
+
   return (
     <>
       <Box
@@ -152,6 +163,9 @@ const ConversionFinished = () => {
               sx={{ borderRadius: "1rem" }}
               variant="outlined"
               startIcon={<PlayCircleFilledWhiteIcon />}
+              onClick={() =>
+                setModalState({ ...modalState, play: !modalState.play })
+              }
             >
               Play
             </Button>
@@ -159,6 +173,9 @@ const ConversionFinished = () => {
               sx={{ borderRadius: "1rem" }}
               variant="outlined"
               startIcon={<QrCodeIcon />}
+              onClick={() =>
+                setModalState({ ...modalState, qr: !modalState.qr })
+              }
             >
               QR-code
             </Button>
@@ -207,6 +224,12 @@ const ConversionFinished = () => {
           </Box>
         </Box>
       </Box>
+      <MediaPlayer changeStatus={handleModalPopUp} status={modalState} />
+      <GenerateQRCodeTemp
+        url={generatedUrl}
+        changeStatus={handleModalPopUp}
+        status={modalState}
+      />
     </>
   );
 };
