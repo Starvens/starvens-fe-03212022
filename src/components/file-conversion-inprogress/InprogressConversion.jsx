@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Typography, TextField, Divider, Button } from "@mui/material";
 import { useTheme } from "@emotion/react";
 import LinearProgress from "@mui/material/LinearProgress";
 import Rating from "@mui/material/Rating";
 import StarIcon from "@mui/icons-material/Star";
+import ReactPlayer from "react-player";
+// import { AudioCard } from "material-ui-player";
+import InProgressProgressBar from "./InProgressProgressBar";
+import ConversionFinished from "./ConversionFinished";
+import FeedbackForm from "./FeedbackForm";
 
-const InprogressConversion = () => {
+const InprogressConversion = (props) => {
   const theme = useTheme();
   const labels = {
     0.5: "Useless",
@@ -28,7 +33,12 @@ const InprogressConversion = () => {
 
   return (
     <Box>
-      <Box
+      {props.curStatus == "inProcess" ? (
+        <InProgressProgressBar />
+      ) : (
+        <ConversionFinished />
+      )}
+      {/* <Box
         sx={{
           padding: "1rem",
           height: "13rem",
@@ -65,13 +75,16 @@ const InprogressConversion = () => {
         >
           please wait until the conversion status updates.
         </Typography>
-      </Box>
+      </Box> */}
+      {/* <ReactPlayer  volume={true} height="4rem" url='/SampleAudio.mp3' controls/> */}
+      {/* <AudioCard  speed src={'/SampleAudio.mp3'} /> */}
+      {props.curStatus == "opConv" ? <FeedbackForm /> : null}
 
-      <Box
+      {/* <Box
         sx={{
-          width: "35rem",
+          width: "80rem",
           height: "18rem",
-          marginTop: "7rem",
+          marginTop: "5rem",
           backgroundColor: "#F8F8F8",
           borderRadius: "2rem",
           display: "flex",
@@ -119,7 +132,7 @@ const InprogressConversion = () => {
           placeholder="Optional, any feedback is appreciated"
         />
         <Button variant="contained">Submit</Button>
-      </Box>
+      </Box> */}
     </Box>
   );
 };

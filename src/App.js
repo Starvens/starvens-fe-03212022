@@ -14,6 +14,7 @@ import { Register } from "./components/Register";
 import { Login } from "./components/Login";
 import UserFileUpload from "./components/user-file-upload/UserFileUpload";
 import UserLeftNav from "./components/user-file-upload/UserLeftNav";
+import GenerateQRCodeTemp from "./components/file-conversion-inprogress/GenerateQRCodeTemp";
 
 function App() {
   const theme = createTheme({
@@ -40,6 +41,7 @@ function App() {
           <Route path="login" element={<Login></Login>}></Route>
           <Route path="/user" element={<UserFileUpload></UserFileUpload>}></Route>
           <Route path="/user2" element={<UserLeftNav />}></Route>
+          <Route path="/qrcode" element={<GenerateQRCodeTemp />}></Route>
 
         </Routes>
         {/* <FirstPage></FirstPage>
