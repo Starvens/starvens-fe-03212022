@@ -3,7 +3,7 @@ import {Box, Typography} from '@mui/material'
 import LinearProgress from "@mui/material/LinearProgress";
 import { useTheme } from "@emotion/react";
 
-const InProgressProgressBar = () => {
+const InProgressProgressBar = (props) => {
   const theme = useTheme()
   return (
     <Box
@@ -21,7 +21,7 @@ const InProgressProgressBar = () => {
           color: "#F8F8F8",
         }}
       >
-        Conversion is in progress, please wait while your file is processed.
+        {props.first}
       </Typography>
       <LinearProgress sx={{ marginTop: "2rem" }} />
       <Typography
@@ -41,7 +41,7 @@ const InProgressProgressBar = () => {
           marginTop: "3rem",
         }}
       >
-        please wait until the conversion status updates.
+        {props.second}
       </Typography>
     </Box>
   );

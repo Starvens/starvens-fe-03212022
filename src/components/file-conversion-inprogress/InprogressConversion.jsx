@@ -34,7 +34,12 @@ const InprogressConversion = (props) => {
   return (
     <Box>
       {props.curStatus == "inProcess" ? (
-        <InProgressProgressBar />
+        <InProgressProgressBar
+          first={
+            "Conversion is in progress, please wait while your file is processed."
+          }
+          second={"please wait until the conversion status updates."}
+        />
       ) : (
         <ConversionFinished />
       )}

@@ -1,17 +1,17 @@
 import logo from "./logo.svg";
 import "./App.css";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/LandingPage/NavBar";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import LandingPagePPT1 from "./components/LandingPagePPT1";
-import PdfConversionImage from "./components/PdfConversionImage";
-import ConversionLinks from "./components/ConversionLinks";
-import FirstPage from "./components/FirstPage";
-import { ThirdPage } from "./components/ThirdPage";
-import FourthPage from './components/FourthPage'
+import LandingPagePPT1 from "./components/LandingPage/LandingPagePPT1";
+import PdfConversionImage from "./components/LandingPage/PdfConversionImage";
+import ConversionLinks from "./components/LandingPage/ConversionLinks";
+import FirstPage from "./components/LandingPage/FirstPage";
+import { ThirdPage } from "./components/LandingPage/ThirdPage";
+import FourthPage from './components/LandingPage/FourthPage'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import LandingPage from "./components/LandingPage";
-import { Register } from "./components/Register";
-import { Login } from "./components/Login";
+import LandingPage from "./components/LandingPage/LandingPage";
+import { Register } from "./components/LandingPage/Register";
+import { Login } from "./components/LandingPage/Login";
 import UserFileUpload from "./components/user-file-upload/UserFileUpload";
 import UserLeftNav from "./components/user-file-upload/UserLeftNav";
 import GenerateQRCodeTemp from "./components/file-conversion-inprogress/GenerateQRCodeTemp";
