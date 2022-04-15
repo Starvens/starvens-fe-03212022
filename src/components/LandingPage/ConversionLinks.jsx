@@ -41,7 +41,7 @@ const ConversionLinks = () => {
                             textAlign: "center"
                         }}
                     >
-                        convert .txt, .pdf, .png, .jpg formats to mp3 with various features.
+                        convert .txt, .pdf, .webp, .jpg formats to mp3 with various features.
                     </Typography>
                 </Box>
                 <Box>
@@ -67,13 +67,13 @@ const ConversionLinks = () => {
                             textAlign: "center"
                         }}
                     >
-                        convert mp3, mp4 formats to .txt, .pdf, .png, .jpg with various features.
+                        convert mp3, mp4 formats to .txt, .pdf, .webp, .jpg with various features.
                     </Typography>
                 </Box>
             </Box>
             <Box sx={{ display: 'flex' }}>
                 <Box sx={{ display: 'flex', height: '200px', marginTop: '2rem', padding: '1rem' }}>
-                    <img src='TextToAudioLeft.png' width='226' height='398'></img>
+                    <img src='TextToAudioLeft.webp' width='226' height='398'></img>
                     <Box sx={{ padding: '2rem' }}>
                         <Typography
                             sx={{
@@ -92,11 +92,11 @@ const ConversionLinks = () => {
                             Start Converting
                         </Typography>
                     </Box>
-                    <img src='TextToAudioRight.png' height='117' width='144'></img>
+                    <img src='TextToAudioRight.webp' height='117' width='144'></img>
                 </Box>
                 {/* <Divider orientation='vertical' flexItem></Divider> */}
                 <Box sx={{ display: 'flex', height: '200px', marginTop: '2rem', padding: '1rem' }}>
-                    <img src='AudioToTextLeft.png' width='197' height='240'></img>
+                    <img src='AudioToTextLeft.webp' width='197' height='240'></img>
                     <Box sx={{ margin: '2.5rem' }}>
                         <Typography
                             sx={{
@@ -115,7 +115,7 @@ const ConversionLinks = () => {
                             Start Converting
                         </Typography>
                     </Box>
-                    <img src='AudioToTextRight.png' height='384' width='196'></img>
+                    <img src='AudioToTextRight.webp' height='384' width='196'></img>
                 </Box>
             </Box>
         </Box>

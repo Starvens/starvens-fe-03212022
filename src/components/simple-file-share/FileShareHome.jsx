@@ -13,6 +13,7 @@ import SuccessFileShareOptions from "./SuccessFileShareOptions";
 const FileShareHome = () => {
   const location = useLocation();
   const [uploadToBE, setUploadToBE] = useState({ status: "off" });
+  const [publicUrl, setPublicUrl] = useState({ publicUrl: "" });
 
   const uploadFileToBackend = async (file) => {
     setUploadToBE({ ...uploadToBE, status: "inprocess" });
@@ -22,12 +23,13 @@ const FileShareHome = () => {
     const data = { fileName: file[0].name, ipAddress: "127.0.0.1" };
     try {
       const resp = await http.post("/createsignedurl", data);
-      const preSignedUrl = resp.data.presignedUrl;
+      const preSignedResp = resp.data;
+      const preSignedUrl = preSignedResp.presignedUrl;
       const uploadFileResp = await axios.put(
         preSignedUrl,
         { data: file[0] },
         {
-          headers: { "Content-Type": "video/mp4" },
+          headers: { "Content-Type": "binary/octet-stream" },
         }
       );
 
@@ -38,7 +40,7 @@ const FileShareHome = () => {
         setUploadToBE({ ...uploadToBE, status: "completeBad" });
       }
       // const finalAns = resp.data.finalUrl;
-      const finalAns = "http://someuniqueurl.starvens.com";
+      setPublicUrl({ publicUrl, publicUrl: preSignedResp.publicUrl });
     } catch (error) {
       console.log(error);
       setUploadToBE({ ...uploadToBE, status: "completeBad" });
@@ -66,6 +68,7 @@ const FileShareHome = () => {
         return (
           <SimpleFileShareFinished
             msg={"Process status Success... you are ready to share file"}
+            publicUrl={publicUrl.publicUrl}
           />
         );
       case "completeBad":
@@ -82,7 +85,10 @@ const FileShareHome = () => {
   return (
     <Box>
       {getComponent(uploadToBE.status)}
-      {uploadToBE.status == "completeGood" ? <SuccessFileShareOptions /> : null}
+      {/* <Box sx={{display: 'flex', justifyContent: 'center'}}> */}
+      {uploadToBE.status == "completeGood" ? <SuccessFileShareOptions publicUrl={publicUrl.publicUrl} /> : null}
+      {/* </Box> */}
+      {/* <h1>Public URL Copy below :: {publicUrl.publicUrl}</h1> */}
     </Box>
   );
 };

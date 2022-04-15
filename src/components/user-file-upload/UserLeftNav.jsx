@@ -180,7 +180,7 @@ export default function UserLeftNav() {
             hidden={open}
             style={{ cursor: "pointer" }}
             onClick={() => navigate("/")}
-            src="/Starvens_Logo.png"
+            src="/Starvens_Logo.webp"
             height="70"
             width="38"
           ></img>
@@ -240,7 +240,7 @@ export default function UserLeftNav() {
           <img
             style={{ cursor: "pointer" }}
             onClick={() => navigate("/")}
-            src="/Starvens_Logo.png"
+            src="/Starvens_Logo.webp"
             height="70"
             width="38"
           ></img>

@@ -19,13 +19,13 @@ const FourthPage = () => {
                     </Typography>
                 </Box>
                 <Box>
-                    <img style={{ marginLeft: '10rem' }} src='/phoneScreen.png'></img>
+                    <img style={{ marginLeft: '10rem' }} src='/phoneScreen.webp'></img>
                 </Box>
             </Box>
             <Box sx={{ background: '#355E3B 0% 0% no-repeat padding-box;' }}>
                 <Box sx={{ display: 'flex', marginTop: '1rem', marginLeft: '3rem'}}>
                     <Box sx={{display: 'flex',  marginRight: '3rem' }}>
-                        <img src='FooterLogoAndName.png' height='70' width='181'></img>
+                        <img src='FooterLogoAndName.webp' height='70' width='181'></img>
                     </Box>
                     <Box sx={{ marginRight: '5rem', marginLeft: '3rem' }}>
                         <Typography

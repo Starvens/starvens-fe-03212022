@@ -5,10 +5,10 @@ import { Typography } from '@mui/material'
 const PdfConversionImage = () => {
   return (
     <Box sx={{ marginLeft: "16rem", display: 'flex' }}>
-      <img src="/Group7.png" height="200" width="400" alt=""></img>
+      <img src="/Group7.webp" height="200" width="400" alt=""></img>
 
       <Typography
-        onClick={() => window.scrollTo(0,900)}
+        onClick={() => window.scrollTo(0,800)}
         sx={{
           fontWeight: "bold",
           marginLeft: "16rem",

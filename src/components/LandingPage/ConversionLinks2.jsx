@@ -20,9 +20,11 @@ const ConversionLinks2 = () => {
       </Typography>
       <Box
         sx={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gridGap: "1rem",
+          // display: "grid",
+          // gridTemplateColumns: "1fr",
+          // gridGap: "1rem",
+          display: "flex",
+          justifyContent: "center",
           marginTop: "2rem",
         }}
       >
@@ -39,7 +41,7 @@ const ConversionLinks2 = () => {
                 textAlign: "center",
               }}
             >
-              Text to Audio
+              Simple File Share
             </Typography>
             <Typography
               sx={{
@@ -49,13 +51,13 @@ const ConversionLinks2 = () => {
                 textAlign: "center",
               }}
             >
-              convert .txt, .pdf, .png, .jpg formats to mp3 with various
-              features.
+              Share any file, any size, any time to any one completely FREE!!
+              period
             </Typography>
           </Box>
           <Box sx={{ display: "flex", marginTop: "2rem", padding: "1rem" }}>
             <Box>
-              <img src="TextToAudioLeft.png"></img>
+              <img src="TextToAudioLeft.webp"></img>
             </Box>
             <Link
               to="/user2"
@@ -76,16 +78,16 @@ const ConversionLinks2 = () => {
                     fontFamily: "Montserrat",
                   }}
                 >
-                  Start Converting
+                  Start sharing
                 </Typography>
               </Box>
             </Link>
             <Box sx={{}}>
-              <img src="TextToAudioRight.png"></img>
+              <img src="TextToAudioRight.webp"></img>
             </Box>
           </Box>
         </Box>
-        <Box
+        {/* <Box
           sx={{ boxShadow: boxShadow, borderRadius: "1rem", margin: "0.5rem" }}
         >
           <Box>
@@ -102,20 +104,19 @@ const ConversionLinks2 = () => {
             </Typography>
             <Typography
               sx={{
-                // fontWeight: "bold",
                 marginLeft: "2rem",
                 color: "#355E3B",
                 fontFamily: "Montserrat",
                 textAlign: "center",
               }}
             >
-              convert .txt, .pdf, .png, .jpg formats to mp3 with various
+              convert .txt, .pdf, .webp, .jpg formats to mp3 with various
               features.
             </Typography>
           </Box>
           <Box sx={{ display: "flex", marginTop: "2rem", padding: "1rem" }}>
             <Box>
-              <img src="TextToAudioLeft.png"></img>
+              <img src="TextToAudioLeft.webp"></img>
             </Box>
             <Link
               to="/user2"
@@ -141,7 +142,7 @@ const ConversionLinks2 = () => {
               </Box>
             </Link>
             <Box sx={{}}>
-              <img src="TextToAudioRight.png"></img>
+              <img src="TextToAudioRight.webp"></img>
             </Box>
           </Box>
         </Box>
@@ -163,14 +164,13 @@ const ConversionLinks2 = () => {
             </Typography>
             <Typography
               sx={{
-                // fontWeight: "bold",
                 marginLeft: "2rem",
                 color: "#355E3B",
                 fontFamily: "Montserrat",
                 textAlign: "center",
               }}
             >
-              convert mp3, mp4 formats to .txt, .pdf, .png, .jpg with various
+              convert mp3, mp4 formats to .txt, .pdf, .webp, .jpg with various
               features.
             </Typography>
           </Box>
@@ -182,7 +182,7 @@ const ConversionLinks2 = () => {
             }}
           >
             <Box>
-              <img src="AudioToTextLeft.png"></img>
+              <img src="AudioToTextLeft.webp"></img>
             </Box>
             <Link
               to="/user2"
@@ -207,10 +207,10 @@ const ConversionLinks2 = () => {
               </Box>
             </Link>
             <Box>
-              <img src="AudioToTextRight.png"></img>
+              <img src="AudioToTextRight.webp"></img>
             </Box>
           </Box>
-        </Box>
+        </Box> */}
       </Box>
     </Box>
   );

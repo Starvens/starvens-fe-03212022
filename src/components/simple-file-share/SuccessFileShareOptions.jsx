@@ -1,11 +1,12 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react";
-import QRCode from "./QRCode";
+import QRCode1 from "./QRCode1";
 import EmailShare from "./EmailShare";
 import LinkShare from "./LinkShare";
 import { Checkbox, Box } from "@mui/material";
+import LinkShareWithHooks from "./LinkShareWithHooks";
 
-const SuccessFileShareOptions = () => {
+const SuccessFileShareOptions = (props) => {
   const [curOpt, seetCurOpt] = useState("linkShare");
 
   const setShareOption = (val) => {
@@ -17,9 +18,12 @@ const SuccessFileShareOptions = () => {
       case "email":
         return <EmailShare />;
       case "qrCode":
-        return <QRCode />;
+        return <QRCode1 url={props.publicUrl} />;
       case "linkShare":
-        return <LinkShare />;
+        // return <LinkShare />;
+        // return <LinkShareWithHooks />;
+        // return <Example />;
+        return <LinkShareWithHooks />
       default:
         return null;
     }
@@ -31,7 +35,9 @@ const SuccessFileShareOptions = () => {
         <Button onClick={() => setShareOption("qrCode")}>QR code</Button>
         <Button onClick={() => setShareOption("linkShare")}>Link</Button>
       </Box>
-      {getComponent(curOpt)}
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        {getComponent(curOpt)}
+      </Box>
     </Box>
   );
 };

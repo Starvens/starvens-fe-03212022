@@ -2,7 +2,7 @@ import { Typography, Box, Button } from "@mui/material";
 import React, { useCallback, useState } from "react";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import LinkIcon from "@mui/icons-material/Link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDropzone } from "react-dropzone";
 import { useTheme } from "@emotion/react";
 
@@ -21,6 +21,10 @@ const FileUploadBefore = (props) => {
         sx={{
           textAlign: "center",
           padding: "1rem",
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'space-around',
           height: "13rem",
           backgroundColor: theme.palette.primary.main,
           borderRadius: "2rem",
@@ -49,8 +53,8 @@ const FileUploadBefore = (props) => {
         >
           Upload
         </Button>
-        <Typography sx={{ color: "#F8F8F8" }}>or</Typography>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
+        {/* <Typography sx={{ color: "#F8F8F8" }}>or</Typography> */}
+        {/* <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Box
             sx={{
               display: "flex",
@@ -70,9 +74,6 @@ const FileUploadBefore = (props) => {
               padding: "2px",
             }}
           >
-            {/* <LinkIcon></LinkIcon> */}
-            {/* <i class="fa-brands fa-dropbox"></i> */}
-            <FontAwesomeIcon color="white" icon="fa-brands fa-dropbox" />
             <Typography>Dropbox</Typography>
           </Box>
           <Box
@@ -86,8 +87,8 @@ const FileUploadBefore = (props) => {
             <LinkIcon></LinkIcon>
             <Typography>Google Drive</Typography>
           </Box>
-        </Box>
-        <Typography
+        </Box> */}
+        {/* <Typography
           sx={{
             font: "italic normal 100 15px/15px Montserrat",
             color: "#FFFF",
@@ -95,7 +96,7 @@ const FileUploadBefore = (props) => {
           }}
         >
           Try an example file
-        </Typography>
+        </Typography> */}
       </Box>
     </div>
   );

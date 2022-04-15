@@ -15,7 +15,7 @@ const UserTopNavigation = () => {
                     <IconButton onClick={() => setNavState({showLeftNav: !navState.showLeftNav})} edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
                         <MenuIcon />
                     </IconButton>
-                    <img src='/Starvens_Logo.png' height='70' width='38'></img>
+                    <img src='/Starvens_Logo.webp' height='70' width='38'></img>
                     <Typography
                         sx={{
                             font: 'normal normal bold 28px/34px Montserrat',

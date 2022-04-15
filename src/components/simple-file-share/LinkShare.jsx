@@ -1,50 +1,89 @@
 import { Input, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import { Box, Checkbox } from "@mui/material";
+import { Box, Checkbox, Button } from "@mui/material";
+import { useTheme } from "@emotion/react";
 
 const LinkShare = () => {
-  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
+  const [linkData, setLinkData] = useState({
+    type: "private",
+    isTCSubmitted: false,
+  });
+  const theme = useTheme();
+
+  const handleChange = (event) => {
+    setLinkData({ ...linkData, type: event.target.value });
+  };
+
   return (
-    <Box>
-      <Input multiline></Input>
+    <Box
+      sx={{
+        backgroundColor: "#F8F8F8",
+        display: "grid",
+        gridGap: "1rem",
+        padding: "1rem",
+        color: theme.palette.primary.main,
+      }}
+    >
+      <Input
+        multiline
+        placeholder="Optional message"
+        fullWidth
+        rows={3}
+        sx={{ display: "grid", gridGap: "2px" }}
+      ></Input>
       <Box>
-        <Typography>How do you want to share?</Typography>
         <FormControl>
-          <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
+          <FormLabel
+            sx={{ color: theme.palette.primary.main }}
+            id="demo-row-radio-buttons-group-label"
+          >
+            How do you want to share?
+          </FormLabel>
           <RadioGroup
             row
             aria-labelledby="demo-row-radio-buttons-group-label"
             name="row-radio-buttons-group"
+            defaultValue="private"
+            onChange={handleChange}
           >
             <FormControlLabel
-              value="female"
+              value="private"
               control={<Radio />}
-              label="Female"
+              label="Private"
             />
-            <FormControlLabel value="male" control={<Radio />} label="Male" />
-            <FormControlLabel value="other" control={<Radio />} label="Other" />
             <FormControlLabel
-              value="disabled"
-              disabled
+              value="public"
               control={<Radio />}
-              label="other"
+              label="Public"
             />
           </RadioGroup>
         </FormControl>
       </Box>
-      <Box>
-        <Input placeholder="Set Your password"></Input>
-      </Box>
-      <Box>
-        <Checkbox {...label} />
+      {linkData.type == "private" ? (
+        <Input required placeholder="Set a password for file" fullWidth></Input>
+      ) : null}
+      <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+        <Checkbox
+          checked={linkData.isTCSubmitted}
+          onChange={() =>
+            setLinkData({ ...linkData, isTCSubmitted: !linkData.isTCSubmitted })
+          }
+          {...label}
+        />
         <Typography>
           I agree to the Starvens terms and privacy policy.
         </Typography>
+      </Box>
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Button disabled={!linkData.isTCSubmitted} variant="contained">
+          Share
+        </Button>
       </Box>
     </Box>
   );

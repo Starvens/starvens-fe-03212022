@@ -38,7 +38,7 @@ const NavBar = () => {
           <Box sx={{ display: "flex" }}>
             <Box sx={{ marginRight: "4rem", display: "flex" }}>
               <Box sx={{cursor: 'pointer'}}>
-                <img onClick={() => window.location.reload()} src="HeaderLogoAndName.png" width="193" height="70"></img>
+                <img onClick={() => window.location.reload()} src="HeaderLogoAndName.webp" width="193" height="70"></img>
               </Box>
             </Box>
             <Box sx={{ display: "flex", marginLeft: "3rem" }}>
