@@ -57,14 +57,14 @@ const ConversionLinks2 = () => {
           </Box>
           <Box sx={{ display: "flex", marginTop: "2rem", padding: "1rem" }}>
             <Box>
-              <img src="TextToAudioLeft.webp"></img>
+              <img src="fileShare.webp"></img>
             </Box>
             <Link
               to="/user2"
               style={{ textDecoration: "none" }}
               state={{ data: "simpleFileShare" }}
             >
-              <Box sx={{ padding: "2rem" }}>
+              <Box sx={{ padding: "2rem"}}>
                 <Typography
                   sx={{
                     fontWeight: "bold",
@@ -73,7 +73,6 @@ const ConversionLinks2 = () => {
                     cursor: "pointer",
                     zIndex: "3",
                     borderRadius: "1rem",
-                    // fontSize: "28px",
                     color: "#355E3B",
                     fontFamily: "Montserrat",
                   }}
@@ -82,9 +81,6 @@ const ConversionLinks2 = () => {
                 </Typography>
               </Box>
             </Link>
-            <Box sx={{}}>
-              <img src="TextToAudioRight.webp"></img>
-            </Box>
           </Box>
         </Box>
         {/* <Box

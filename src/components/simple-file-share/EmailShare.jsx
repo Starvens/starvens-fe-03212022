@@ -1,7 +1,27 @@
 import { Box, Button, TextField } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import http from "../api/starvensBackend";
 
 const EmailShare = () => {
+  const [emailData, setEmailData] = useState({
+    toEmail: "",
+    subject: "",
+    content: "",
+  });
+
+  const sendEmail = async () => {
+    try {
+      let resp = await http.post("/sendemail", emailData);
+      let respData = resp.data;
+      if (respData.status == "success") {
+        //email send successful
+      } else {
+      }
+    } catch (error) {
+      console.log("not able to send email");
+    }
+  };
+
   return (
     <Box
       sx={{ background: "#F8F8F8", padding: "0.5rem", paddingRight: "1rem" }}
@@ -30,7 +50,7 @@ const EmailShare = () => {
         variant="outlined"
       />
       <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Button variant="contained">Share</Button>
+        <Button variant="contained">Send</Button>
       </Box>
     </Box>
   );

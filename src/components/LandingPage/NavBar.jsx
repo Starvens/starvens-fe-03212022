@@ -24,14 +24,9 @@ const NavBar = () => {
         sx={{
           height: "5rem",
           justifyContent: "center",
-          // background: "transparent",
           background: "#C1E1C1",
-          // background: '#C1E1C1CC 0% 0% no-repeat padding-box;',
-          // background: '#F8F8F8',
-          // marginTop: 3,
           padding: 2,
           color: "#355E3B",
-          // elevation: "6",
           fontFamily: "Lucida Sans",
           boxShadow: "0px 0px 0px 0px",
           border: "none",
@@ -43,7 +38,7 @@ const NavBar = () => {
             <Box sx={{ marginRight: "4rem", display: "flex" }}>
               <Box sx={{ cursor: "pointer" }}>
                 <img
-                  onClick={() => window.location.reload()}
+                  onClick={() => navigate("/")}
                   src="HeaderLogoAndName.webp"
                   width="193"
                   height="70"
@@ -60,6 +55,7 @@ const NavBar = () => {
                   marginTop: "1.5rem",
                   fontSize: "20px",
                   fontFamily: "Lucida Sans",
+                  cursor: 'pointer'
                 }}
               >
                 Products
@@ -67,17 +63,23 @@ const NavBar = () => {
                   <HoverMenu options={menuOptions.products}></HoverMenu>
                 ) : null}
               </Typography>
-              <Typography
-                sx={{
-                  fontWeight: "bold",
-                  marginLeft: "2rem",
-                  marginTop: "1.5rem",
-                  fontSize: "20px",
-                  fontFamily: "Lucida Sans",
-                }}
+
+              <Box
+                onClick={() => navigate("/aboutus")}
+                sx={{ cursor: "pointer" }}
               >
-                About us
-              </Typography>
+                <Typography
+                  sx={{
+                    fontWeight: "bold",
+                    marginLeft: "2rem",
+                    marginTop: "1.5rem",
+                    fontSize: "20px",
+                    fontFamily: "Lucida Sans",
+                  }}
+                >
+                  About us
+                </Typography>
+              </Box>
             </Box>
             <Box sx={{ marginLeft: "5rem" }}>
               <OutlinedInput

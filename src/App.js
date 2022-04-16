@@ -2,6 +2,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import GenerateQRCodeTemp from "./components/file-conversion-inprogress/GenerateQRCodeTemp";
+import AboutUs from "./components/LandingPage/AboutUs";
 import LandingPage from "./components/LandingPage/LandingPage";
 import { Login } from "./components/LandingPage/Login";
 import { Register } from "./components/LandingPage/Register";
@@ -39,6 +40,7 @@ function App() {
           ></Route>
           <Route path="/user2" element={<UserLeftNav />}></Route>
           <Route path="/qrcode" element={<GenerateQRCodeTemp />}></Route>
+          <Route path="/aboutus" element={<AboutUs />}></Route>
         </Routes>
         {/* <FirstPage></FirstPage>
       <ConversionLinks></ConversionLinks>

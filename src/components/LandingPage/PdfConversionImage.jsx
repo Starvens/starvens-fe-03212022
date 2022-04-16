@@ -4,8 +4,8 @@ import React from "react";
 
 const PdfConversionImage = () => {
   return (
-    <Box sx={{ marginLeft: "16rem", display: "flex" }}>
-      <img src="/Group7.webp" height="200" width="400" alt=""></img>
+    <Box sx={{ marginLeft: "16rem", marginTop: '3rem', display: "flex" }}>
+      <img src="/fileShare.webp" height="200" width="400" alt=""></img>
 
       <Typography
         onClick={() => window.scrollTo(0, 780)}
