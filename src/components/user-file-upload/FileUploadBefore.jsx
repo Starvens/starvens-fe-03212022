@@ -1,10 +1,9 @@
-import { Typography, Box, Button } from "@mui/material";
-import React, { useCallback, useState } from "react";
+import { useTheme } from "@emotion/react";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import LinkIcon from "@mui/icons-material/Link";
+import { Box, Button, Typography } from "@mui/material";
+import React, { useCallback } from "react";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDropzone } from "react-dropzone";
-import { useTheme } from "@emotion/react";
 
 const FileUploadBefore = (props) => {
   const theme = useTheme();
@@ -21,10 +20,10 @@ const FileUploadBefore = (props) => {
         sx={{
           textAlign: "center",
           padding: "1rem",
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'space-around',
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "space-around",
           height: "13rem",
           backgroundColor: theme.palette.primary.main,
           borderRadius: "2rem",

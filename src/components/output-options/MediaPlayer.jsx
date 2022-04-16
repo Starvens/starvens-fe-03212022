@@ -1,7 +1,7 @@
+import { useTheme } from "@emotion/react";
+import { Box, Dialog, DialogTitle } from "@mui/material";
 import React from "react";
 import ReactPlayer from "react-player";
-import { Dialog, DialogTitle, Box } from "@mui/material";
-import { useTheme } from "@emotion/react";
 
 const MediaPlayer = (props) => {
   const theme = useTheme();

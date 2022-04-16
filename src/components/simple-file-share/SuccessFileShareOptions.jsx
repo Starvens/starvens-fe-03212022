@@ -1,10 +1,8 @@
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import React, { useState } from "react";
-import QRCode1 from "./QRCode1";
 import EmailShare from "./EmailShare";
-import LinkShare from "./LinkShare";
-import { Checkbox, Box } from "@mui/material";
 import LinkShareWithHooks from "./LinkShareWithHooks";
+import QRCode1 from "./QRCode1";
 
 const SuccessFileShareOptions = (props) => {
   const [curOpt, seetCurOpt] = useState("linkShare");
@@ -23,7 +21,7 @@ const SuccessFileShareOptions = (props) => {
         // return <LinkShare />;
         // return <LinkShareWithHooks />;
         // return <Example />;
-        return <LinkShareWithHooks />
+        return <LinkShareWithHooks />;
       default:
         return null;
     }

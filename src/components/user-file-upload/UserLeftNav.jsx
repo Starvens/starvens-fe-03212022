@@ -1,43 +1,33 @@
-import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import CssBaseline from "@mui/material/CssBaseline";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
-import HomeIcon from "@mui/icons-material/Home";
+import DeleteIcon from "@mui/icons-material/Delete";
 import FolderIcon from "@mui/icons-material/Folder";
 import HistoryIcon from "@mui/icons-material/History";
-import DeleteIcon from "@mui/icons-material/Delete";
-import IosShareIcon from "@mui/icons-material/IosShare";
-import ShareIcon from "@mui/icons-material/Share";
+import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import SettingsIcon from "@mui/icons-material/Settings";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SearchIcon from "@mui/icons-material/Search";
-import CircularProgress, {
-  circularProgressClasses,
-} from "@mui/material/CircularProgress";
+import SettingsIcon from "@mui/icons-material/Settings";
+import ShareIcon from "@mui/icons-material/Share";
+import MuiAppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import MuiDrawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
-import FileUploadBox from "./FileUploadBox";
-import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import InprogressConversion from "../file-conversion-inprogress/InprogressConversion";
-import ConversionFinished from "../file-conversion-inprogress/ConversionFinished";
+import List from "@mui/material/List";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import { styled, useTheme } from "@mui/material/styles";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import FileShareHome from "../simple-file-share/FileShareHome";
 import ConversionsMainPage from "./ConversionsMainPage";
 
@@ -317,9 +307,11 @@ export default function UserLeftNav() {
           backgroundColor: theme.palette.primary.light,
         }}
       >
-        {
-          featureSelected.feature == 'simpleFileShare' ? <FileShareHome /> : <ConversionsMainPage />
-        }
+        {featureSelected.feature == "simpleFileShare" ? (
+          <FileShareHome />
+        ) : (
+          <ConversionsMainPage />
+        )}
       </Box>
     </Box>
   );

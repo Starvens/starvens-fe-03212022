@@ -1,10 +1,10 @@
-import React from "react";
-import {Box, Typography} from '@mui/material'
-import LinearProgress from "@mui/material/LinearProgress";
 import { useTheme } from "@emotion/react";
+import { Box, Typography } from "@mui/material";
+import LinearProgress from "@mui/material/LinearProgress";
+import React from "react";
 
 const InProgressProgressBar = (props) => {
-  const theme = useTheme()
+  const theme = useTheme();
   return (
     <Box
       sx={{

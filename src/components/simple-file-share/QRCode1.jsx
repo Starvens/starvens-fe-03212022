@@ -1,8 +1,8 @@
 import { useTheme } from "@emotion/react";
-import { Box, Typography, Checkbox, Button, Link } from "@mui/material";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { Box, Checkbox, Link, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { QRCode } from "react-qrcode-logo";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 const QRCode1 = (props) => {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
@@ -25,9 +25,11 @@ const QRCode1 = (props) => {
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <QRCode value={props.url} logoImage={"Starvens_Logo.webp"} />
         </Box>
-        <Box sx={{ display: "flex", justifyContent: 'space-around' }}>
-          <Link sx={{wordWrap: 'break-word', width: '24rem'}}>{props.url}</Link>
-          <ContentCopyIcon sx={{alignSelf: 'center'}} />
+        <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+          <Link sx={{ wordWrap: "break-word", width: "24rem" }}>
+            {props.url}
+          </Link>
+          <ContentCopyIcon sx={{ alignSelf: "center" }} />
         </Box>
       </Box>
     );

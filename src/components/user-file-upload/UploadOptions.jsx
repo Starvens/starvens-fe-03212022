@@ -1,11 +1,8 @@
-import { Typography, Box, Button } from "@mui/material";
-import React, { useCallback, useState } from "react";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import LinkIcon from "@mui/icons-material/Link";
-import { useDropzone } from "react-dropzone";
-import FileUploadBefore from "./FileUploadBefore";
-import FileUploadAfter from "./FileUploadAfter";
 import { useTheme } from "@emotion/react";
+import { Box, Button } from "@mui/material";
+import React, { useState } from "react";
+import FileUploadAfter from "./FileUploadAfter";
+import FileUploadBefore from "./FileUploadBefore";
 
 const UploadOptions = (props) => {
   const [fileDetails, setFile] = useState({ file: null, isFile: false });

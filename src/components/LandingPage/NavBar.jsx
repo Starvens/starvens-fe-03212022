@@ -1,17 +1,21 @@
-import React, { useState } from "react";
 import { AppBar, Box, OutlinedInput, Toolbar, Typography } from "@mui/material";
-import HoverMenu from "./HoverMenu";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import HoverMenu from "./HoverMenu";
 
 const NavBar = () => {
-  const x = ['first', 'second']
+  const x = ["first", "second"];
   const menuOptions = {
-    'products': ['Text to Audio', 'Audio To Text'],
-    'company': ['About', 'Contact'],
-    'signin': ['Signin', 'Create Account']
-  }
+    products: ["Text to Audio", "Audio To Text"],
+    company: ["About", "Contact"],
+    signin: ["Signin", "Create Account"],
+  };
   const navigate = useNavigate();
-  const [navMenu, setNavMenu] = useState({ 'products': false, 'company': false, 'signin': false })
+  const [navMenu, setNavMenu] = useState({
+    products: false,
+    company: false,
+    signin: false,
+  });
 
   return (
     <Box sx={{}}>
@@ -37,14 +41,19 @@ const NavBar = () => {
         <Toolbar sx={{ border: "none", outline: "none" }}>
           <Box sx={{ display: "flex" }}>
             <Box sx={{ marginRight: "4rem", display: "flex" }}>
-              <Box sx={{cursor: 'pointer'}}>
-                <img onClick={() => window.location.reload()} src="HeaderLogoAndName.webp" width="193" height="70"></img>
+              <Box sx={{ cursor: "pointer" }}>
+                <img
+                  onClick={() => window.location.reload()}
+                  src="HeaderLogoAndName.webp"
+                  width="193"
+                  height="70"
+                ></img>
               </Box>
             </Box>
             <Box sx={{ display: "flex", marginLeft: "3rem" }}>
               <Typography
-                onMouseEnter={() => setNavMenu({ ...navMenu, 'products': true })}
-                onMouseLeave={() => setNavMenu({ ...navMenu, 'products': false })}
+                onMouseEnter={() => setNavMenu({ ...navMenu, products: true })}
+                onMouseLeave={() => setNavMenu({ ...navMenu, products: false })}
                 sx={{
                   fontWeight: "bold",
                   marginLeft: "2rem",
@@ -54,7 +63,9 @@ const NavBar = () => {
                 }}
               >
                 Products
-                {navMenu.products ? <HoverMenu options={menuOptions.products}></HoverMenu> : null}
+                {navMenu.products ? (
+                  <HoverMenu options={menuOptions.products}></HoverMenu>
+                ) : null}
               </Typography>
               <Typography
                 sx={{
@@ -65,21 +76,7 @@ const NavBar = () => {
                   fontFamily: "Lucida Sans",
                 }}
               >
-                Why Starvens
-              </Typography>
-              <Typography
-                onMouseEnter={() => setNavMenu({ ...navMenu, 'company': true })}
-                onMouseLeave={() => setNavMenu({ ...navMenu, 'company': false })}
-                sx={{
-                  fontWeight: "bold",
-                  marginLeft: "2rem",
-                  marginTop: "1.5rem",
-                  fontSize: "20px",
-                  fontFamily: "Lucida Sans",
-                }}
-              >
-                Company
-                {navMenu.company ? <HoverMenu options={menuOptions.products}></HoverMenu> : null}
+                About us
               </Typography>
             </Box>
             <Box sx={{ marginLeft: "5rem" }}>
@@ -97,8 +94,8 @@ const NavBar = () => {
             </Box>
             <Box sx={{ marginLeft: "2rem" }}>
               <Typography
-                onMouseEnter={() => setNavMenu({ ...navMenu, 'signin': true })}
-                onMouseLeave={() => setNavMenu({ ...navMenu, 'signin': false })}
+                onMouseEnter={() => setNavMenu({ ...navMenu, signin: true })}
+                onMouseLeave={() => setNavMenu({ ...navMenu, signin: false })}
                 sx={{
                   fontWeight: "bold",
                   marginLeft: "16rem",
@@ -108,7 +105,9 @@ const NavBar = () => {
                 }}
               >
                 Sign in
-                {navMenu.signin ? <HoverMenu options={menuOptions.products}></HoverMenu> : null}
+                {navMenu.signin ? (
+                  <HoverMenu options={menuOptions.products}></HoverMenu>
+                ) : null}
               </Typography>
             </Box>
           </Box>

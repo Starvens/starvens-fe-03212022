@@ -1,20 +1,20 @@
 body {
-/* Layout Properties */
+  /* Layout Properties */
 
-top: 0px;
-left: 0px;
-margin: 0;
-/* width: 1920px; */
-/* height: 1080px; */
+  top: 0px;
+  left: 0px;
+  margin: 0;
+  /* width: 1920px; */
+  /* height: 1080px; */
 
-/* UI Properties */
+  /* UI Properties */
 
-background: #C1E1C1CC 0% 0% no-repeat padding-box;
-/* border: 1px solid #707070; */
-opacity: 1;
+  background: #c1e1c1cc 0% 0% no-repeat padding-box;
+  /* border: 1px solid #707070; */
+  opacity: 1;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

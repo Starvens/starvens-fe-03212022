@@ -1,11 +1,9 @@
-import { Box } from "@mui/material";
-import React, { useState } from "react";
 import { useTheme } from "@emotion/react";
-import { useNavigate } from "react-router-dom";
+import { Box, Typography } from "@mui/material";
+import React from "react";
 import { useLocation } from "react-router-dom";
-import { Typography } from "@mui/material";
-import FileUploadBox from "./FileUploadBox";
 import InprogressConversion from "../file-conversion-inprogress/InprogressConversion";
+import FileUploadBox from "./FileUploadBox";
 
 const ConversionsMainPage = (props) => {
   const theme = useTheme();

@@ -1,13 +1,11 @@
-import { LineAxisOutlined } from "@mui/icons-material";
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
+import axios from "axios";
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import http from "../api/starvensBackend";
 import InProgressProgressBar from "../file-conversion-inprogress/InProgressProgressBar";
-import FileUploadBox from "../user-file-upload/FileUploadBox";
 import UploadOptions from "../user-file-upload/UploadOptions";
 import SimpleFileShareFinished from "./SimpleFileShareFinished";
-import http from "../api/starvensBackend";
-import axios from "axios";
 import SuccessFileShareOptions from "./SuccessFileShareOptions";
 
 const FileShareHome = () => {
@@ -86,7 +84,9 @@ const FileShareHome = () => {
     <Box>
       {getComponent(uploadToBE.status)}
       {/* <Box sx={{display: 'flex', justifyContent: 'center'}}> */}
-      {uploadToBE.status == "completeGood" ? <SuccessFileShareOptions publicUrl={publicUrl.publicUrl} /> : null}
+      {uploadToBE.status == "completeGood" ? (
+        <SuccessFileShareOptions publicUrl={publicUrl.publicUrl} />
+      ) : null}
       {/* </Box> */}
       {/* <h1>Public URL Copy below :: {publicUrl.publicUrl}</h1> */}
     </Box>

@@ -1,22 +1,14 @@
-import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  Divider,
-  Typography,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
 import { useTheme } from "@emotion/react";
-import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
-import QrCodeIcon from "@mui/icons-material/QrCode";
-import DownloadIcon from "@mui/icons-material/Download";
+import ArchiveIcon from "@mui/icons-material/Archive";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import DeleteIcon from "@mui/icons-material/Delete";
+import DownloadIcon from "@mui/icons-material/Download";
+import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
+import QrCodeIcon from "@mui/icons-material/QrCode";
 import ReplayIcon from "@mui/icons-material/Replay";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ArchiveIcon from "@mui/icons-material/Archive";
+import { Box, Button, Divider, Typography } from "@mui/material";
+import React, { useState } from "react";
 import MediaPlayer from "../output-options/MediaPlayer";
 import GenerateQRCodeTemp from "./GenerateQRCodeTemp";
 

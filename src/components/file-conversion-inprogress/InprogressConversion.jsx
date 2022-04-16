@@ -1,14 +1,10 @@
-import React, { useEffect } from "react";
-import { Box, Typography, TextField, Divider, Button } from "@mui/material";
 import { useTheme } from "@emotion/react";
-import LinearProgress from "@mui/material/LinearProgress";
-import Rating from "@mui/material/Rating";
-import StarIcon from "@mui/icons-material/Star";
-import ReactPlayer from "react-player";
-// import { AudioCard } from "material-ui-player";
-import InProgressProgressBar from "./InProgressProgressBar";
+import { Box } from "@mui/material";
+import React from "react";
 import ConversionFinished from "./ConversionFinished";
 import FeedbackForm from "./FeedbackForm";
+// import { AudioCard } from "material-ui-player";
+import InProgressProgressBar from "./InProgressProgressBar";
 
 const InprogressConversion = (props) => {
   const theme = useTheme();

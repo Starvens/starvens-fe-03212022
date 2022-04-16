@@ -1,6 +1,6 @@
 import { useTheme } from "@emotion/react";
-import React from "react";
 import { Box, Typography } from "@mui/material";
+import React from "react";
 
 const SimpleFileShareFinished = (props) => {
   const theme = useTheme();

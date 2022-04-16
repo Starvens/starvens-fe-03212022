@@ -1,9 +1,11 @@
+import { Box, Button, TextField } from "@mui/material";
 import React from "react";
-import { TextField, Box, Button } from "@mui/material";
 
 const EmailShare = () => {
   return (
-    <Box sx={{ background: "#F8F8F8", padding: "0.5rem", paddingRight: '1rem' }}>
+    <Box
+      sx={{ background: "#F8F8F8", padding: "0.5rem", paddingRight: "1rem" }}
+    >
       <TextField
         sx={{ margin: "0.5rem" }}
         id="outlined-basic"
@@ -28,11 +30,7 @@ const EmailShare = () => {
         variant="outlined"
       />
       <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Button
-          variant="contained"
-        >
-          Share
-        </Button>
+        <Button variant="contained">Share</Button>
       </Box>
     </Box>
   );

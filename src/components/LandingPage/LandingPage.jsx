@@ -1,9 +1,8 @@
-import React from 'react'
-import FirstPage from './FirstPage'
-import ConversionLinks from './ConversionLinks'
-import { ThirdPage } from './ThirdPage'
-import FourthPage from './FourthPage'
-import ConversionLinks2 from './ConversionLinks2'
+import React from "react";
+import ConversionLinks2 from "./ConversionLinks2";
+import FirstPage from "./FirstPage";
+import FourthPage from "./FourthPage";
+import { ThirdPage } from "./ThirdPage";
 
 const LandingPage = () => {
   return (
@@ -14,7 +13,7 @@ const LandingPage = () => {
       <ThirdPage></ThirdPage>
       <FourthPage></FourthPage>
     </>
-  )
-}
+  );
+};
 
-export default LandingPage
+export default LandingPage;
