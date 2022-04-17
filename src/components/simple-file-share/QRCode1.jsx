@@ -8,7 +8,6 @@ const QRCode1 = (props) => {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const theme = useTheme();
   const [isTC, setIsTc] = useState(false);
-
   const ShowQRCode = (props) => {
     return (
       <Box sx={{ background: "#F8F8F8", padding: "1rem" }}>
@@ -67,7 +66,7 @@ const QRCode1 = (props) => {
               {...label}
             />
             <Typography>
-              I agree to the Starvens terms and privacy policy.
+            I agree to the <a href='/service' target="_blank" rel="noreferrer noopener">Starvens terms</a> and <a href='/privacy' target="_blank" rel="noreferrer noopener">privacy policy.</a>
             </Typography>
           </Box>
         </Box>

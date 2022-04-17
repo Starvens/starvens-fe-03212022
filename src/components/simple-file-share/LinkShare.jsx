@@ -1,5 +1,5 @@
 import { useTheme } from "@emotion/react";
-import { Box, Button, Checkbox, Input, Typography } from "@mui/material";
+import { Box, Button, Checkbox, Input, Typography ,Link} from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
@@ -76,7 +76,7 @@ const LinkShare = () => {
           {...label}
         />
         <Typography>
-          I agree to the Starvens terms and privacy policy.
+          I agree to the <Link>Starvens terms</Link> and <Link>privacy policy.</Link>
         </Typography>
       </Box>
       <Box sx={{ display: "flex", justifyContent: "center" }}>

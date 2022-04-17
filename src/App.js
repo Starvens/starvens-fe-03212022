@@ -8,6 +8,8 @@ import { Login } from "./components/LandingPage/Login";
 import { Register } from "./components/LandingPage/Register";
 import UserFileUpload from "./components/user-file-upload/UserFileUpload";
 import UserLeftNav from "./components/user-file-upload/UserLeftNav";
+import Privacy from "./components/service-and-privacy/privacy"
+import Service from "./components/service-and-privacy/service"
 
 function App() {
   const theme = createTheme({
@@ -41,6 +43,8 @@ function App() {
           <Route path="/user2" element={<UserLeftNav />}></Route>
           <Route path="/qrcode" element={<GenerateQRCodeTemp />}></Route>
           <Route path="/aboutus" element={<AboutUs />}></Route>
+          <Route path="/privacy" element={<Privacy />}></Route>
+          <Route path="/service" element={<Service />}></Route>
         </Routes>
         {/* <FirstPage></FirstPage>
       <ConversionLinks></ConversionLinks>
