@@ -14,7 +14,7 @@ const SuccessFileShareOptions = (props) => {
   const getComponent = (curState) => {
     switch (curState) {
       case "email":
-        return <EmailShare />;
+        return <EmailShare url={props.publicUrl} />;
       case "qrCode":
         return <QRCode1 url={props.publicUrl} />;
       case "linkShare":
