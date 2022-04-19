@@ -29,7 +29,6 @@ const LinkShareWithHooks = () => {
   const watchTypeOfShare = watch("type", "private");
   const watchTcAgreed = watch("isTcAgreed", false);
   const onSubmit = (data) => console.log(data);
-
   return (
     <Box
       sx={{
@@ -103,7 +102,7 @@ const LinkShareWithHooks = () => {
           render={({ field }) => <Checkbox {...field} {...label} />}
         />
         <Typography>
-          I agree to the Starvens terms and privacy policy.
+        I agree to the <a href='/service' target="_blank" rel="noreferrer noopener">Starvens terms</a> and <a href='/privacy' target="_blank" rel="noreferrer noopener">privacy policy.</a>
         </Typography>
       </Box>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
