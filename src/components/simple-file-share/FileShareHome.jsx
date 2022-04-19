@@ -7,6 +7,7 @@ import InProgressProgressBar from "../file-conversion-inprogress/InProgressProgr
 import UploadOptions from "../user-file-upload/UploadOptions";
 import SimpleFileShareFinished from "./SimpleFileShareFinished";
 import SuccessFileShareOptions from "./SuccessFileShareOptions";
+import { getSize } from "../businessLogic/GetFileDetails";
 
 const FileShareHome = () => {
   const location = useLocation();
@@ -18,7 +19,14 @@ const FileShareHome = () => {
 
     //initially get the presigned url
     //TODO later change to single axios client
-    const data = { fileName: file[0].name, ipAddress: "127.0.0.1" };
+    const [siz, units] = getSize(file[0].size);
+    const data = {
+      fileName: file[0].name,
+      ipAddress: "127.0.0.1",
+      fileSize: siz,
+      flatSize: file[0].size,
+      units: units,
+    };
     try {
       const resp = await http.post("/createsignedurl", data);
       const preSignedResp = resp.data;
@@ -83,12 +91,9 @@ const FileShareHome = () => {
   return (
     <Box>
       {getComponent(uploadToBE.status)}
-      {/* <Box sx={{display: 'flex', justifyContent: 'center'}}> */}
       {uploadToBE.status == "completeGood" ? (
         <SuccessFileShareOptions publicUrl={publicUrl.publicUrl} />
       ) : null}
-      {/* </Box> */}
-      {/* <h1>Public URL Copy below :: {publicUrl.publicUrl}</h1> */}
     </Box>
   );
 };

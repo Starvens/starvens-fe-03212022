@@ -19,9 +19,10 @@ const EmailShare = (props) => {
     isOTPSent: false,
     currentBox: "email",
     usersOtp: "",
-    curId: "",
     fileLocation: props.url,
   });
+  const [disableSend, setDisableSend] = useState(false)
+  const [curId, setCurId] = useState("");
   const styles = {
     boxHead: {
       font: "normal normal bold 22px/23px Montserrat",
@@ -64,17 +65,6 @@ const EmailShare = (props) => {
     </React.Fragment>
   );
 
-  const getRandomWord = () => {
-    let word =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~:@!$*=";
-    let ans = "";
-    for (let i = 0; i < 10; i++) {
-      let ind = Math.floor(Math.random() * (word.length - 1));
-      ans += word[ind];
-    }
-    return ans;
-  };
-
   const sendEmail = () => {
     return (
       <Box sx={styles.boxBgc}>
@@ -111,7 +101,7 @@ const EmailShare = (props) => {
           variant="outlined"
         />
         <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Button onClick={() => sendEmailOTP()} variant="contained">
+          <Button disabled={disableSend} onClick={() => sendEmailOTP()} variant="contained">
             Send
           </Button>
         </Box>
@@ -209,8 +199,10 @@ const EmailShare = (props) => {
     {
     }
   };
+
   const sendEmailOTP = async () => {
     try {
+      setDisableSend(true)
       let isValidEmail = validateEmail(emailData.toEmail);
       if (!isValidEmail) {
         setOpen({
@@ -227,11 +219,12 @@ const EmailShare = (props) => {
         });
         return;
       }
-      // let curUUid = uuidv4().toString();
-      let curUUid = getRandomWord()
-      console.log("emailData", emailData);
-      setEmailData({ ...emailData, 'curId': curUUid });
-      let resp = await http.post("/generateotp", emailData);
+      let curUUid = uuidv4().toString();
+      setCurId(curUUid);
+      let resp = await http.post("/generateotp", {
+        ...emailData,
+        curId: curUUid,
+      });
       console.log("emailData", emailData);
       let otpSent = await resp.data;
       setEmailData({ ...emailData, isOTPSent: true });
@@ -248,7 +241,10 @@ const EmailShare = (props) => {
 
   const verifyOTPBackend = async () => {
     try {
-      let resp = await http.post("/validateotp", emailData);
+      let resp = await http.post("/validateotp", {
+        ...emailData,
+        curId: curId,
+      });
       let otpVerified = await resp.data;
       if (otpVerified.status == "success") {
         setEmailData({ ...emailData, currentBox: "success" });
