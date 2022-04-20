@@ -10,6 +10,7 @@ import UserFileUpload from "./components/user-file-upload/UserFileUpload";
 import UserLeftNav from "./components/user-file-upload/UserLeftNav";
 import Privacy from "./components/service-and-privacy/privacy"
 import Service from "./components/service-and-privacy/service"
+import PrivateShare from "./components/simple-file-share/PrivateShare";
 
 function App() {
   const theme = createTheme({
@@ -40,11 +41,13 @@ function App() {
             path="/user"
             element={<UserFileUpload></UserFileUpload>}
           ></Route>
-          <Route path="/user2" element={<UserLeftNav />}></Route>
+          <Route path="/share" element={<UserLeftNav />}></Route>
           <Route path="/qrcode" element={<GenerateQRCodeTemp />}></Route>
           <Route path="/aboutus" element={<AboutUs />}></Route>
           <Route path="/privacy" element={<Privacy />}></Route>
           <Route path="/service" element={<Service />}></Route>
+          <Route path="/share/:id" element={<PrivateShare />}></Route>
+          {/* <Route path="/share/" element={<Service />}></Route> */}
         </Routes>
         {/* <FirstPage></FirstPage>
       <ConversionLinks></ConversionLinks>

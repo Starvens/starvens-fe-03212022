@@ -60,7 +60,7 @@ const ConversionLinks2 = () => {
               <img src="fileShare.webp"></img>
             </Box>
             <Link
-              to="/user2"
+              to="/share"
               style={{ textDecoration: "none" }}
               state={{ data: "simpleFileShare" }}
             >
@@ -115,7 +115,7 @@ const ConversionLinks2 = () => {
               <img src="TextToAudioLeft.webp"></img>
             </Box>
             <Link
-              to="/user2"
+              to="/share"
               style={{ textDecoration: "none" }}
               state={{ data: "textToAudio" }}
             >
@@ -181,7 +181,7 @@ const ConversionLinks2 = () => {
               <img src="AudioToTextLeft.webp"></img>
             </Box>
             <Link
-              to="/user2"
+              to="/share"
               style={{ textDecoration: "none" }}
               state={{ data: "audioToText" }}
             >

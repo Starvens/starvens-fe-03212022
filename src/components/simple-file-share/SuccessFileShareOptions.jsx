@@ -5,7 +5,7 @@ import LinkShareWithHooks from "./LinkShareWithHooks";
 import QRCode1 from "./QRCode1";
 
 const SuccessFileShareOptions = (props) => {
-  const [curOpt, seetCurOpt] = useState("linkShare");
+  const [curOpt, seetCurOpt] = useState("email");
 
   const setShareOption = (val) => {
     seetCurOpt(val);
@@ -21,7 +21,7 @@ const SuccessFileShareOptions = (props) => {
         // return <LinkShare />;
         // return <LinkShareWithHooks />;
         // return <Example />;
-        return <LinkShareWithHooks />;
+        return <LinkShareWithHooks url={props.publicUrl} />;
       default:
         return null;
     }

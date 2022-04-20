@@ -128,7 +128,11 @@ export default function UserLeftNav() {
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const featureType = location.state.data;
+  // const featureType = location.state.data;
+  let featureType = "";
+  if (location && location.state) {
+    featureType = location.state.data;
+  }
   const [featureSelected, setFeatureSelected] = React.useState({
     feature: featureType,
   });

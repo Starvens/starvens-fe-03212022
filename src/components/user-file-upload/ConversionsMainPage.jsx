@@ -8,7 +8,10 @@ import FileUploadBox from "./FileUploadBox";
 const ConversionsMainPage = (props) => {
   const theme = useTheme();
   const location = useLocation();
-  const featureType = location.state.data;
+  let featureType = "";
+  if (location && location.state) {
+    featureType = location.state.data;
+  }
   const [featureSelected, setFeatureSelected] = React.useState({
     feature: featureType,
   });
@@ -78,7 +81,9 @@ const ConversionsMainPage = (props) => {
             </Typography>
           </Box>
           <Box>
-            <FileUploadBox featureType={location.state.data}></FileUploadBox>
+            <FileUploadBox
+              featureType={location.state ? location.state.data : ""}
+            ></FileUploadBox>
           </Box>
           <Box></Box>
           <Box></Box>

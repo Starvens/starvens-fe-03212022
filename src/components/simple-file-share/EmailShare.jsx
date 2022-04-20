@@ -21,7 +21,7 @@ const EmailShare = (props) => {
     usersOtp: "",
     fileLocation: props.url,
   });
-  const [disableSend, setDisableSend] = useState(false)
+  const [disableSend, setDisableSend] = useState(false);
   const [curId, setCurId] = useState("");
   const styles = {
     boxHead: {
@@ -58,7 +58,7 @@ const EmailShare = (props) => {
         size="small"
         aria-label="close"
         color="inherit"
-        onClick={() => setOpen(false)}
+        onClick={() => setOpen({...open, isOpen: false})}
       >
         <CloseIcon fontSize="small" />
       </IconButton>
@@ -101,7 +101,11 @@ const EmailShare = (props) => {
           variant="outlined"
         />
         <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Button disabled={disableSend} onClick={() => sendEmailOTP()} variant="contained">
+          <Button
+            disabled={disableSend}
+            onClick={() => sendEmailOTP()}
+            variant="contained"
+          >
             Send
           </Button>
         </Box>
@@ -188,7 +192,7 @@ const EmailShare = (props) => {
           sx={{ ...styles.buttonPadding, alignSelf: "center" }}
           variant="contained"
           onClick={() =>
-            // navigate("/user2", { state: { data: "simpleFileShare" } })
+            // navigate("/share", { state: { data: "simpleFileShare" } })
             window.location.reload()
           }
         >
@@ -202,7 +206,6 @@ const EmailShare = (props) => {
 
   const sendEmailOTP = async () => {
     try {
-      setDisableSend(true)
       let isValidEmail = validateEmail(emailData.toEmail);
       if (!isValidEmail) {
         setOpen({
@@ -219,6 +222,7 @@ const EmailShare = (props) => {
         });
         return;
       }
+      setDisableSend(!disableSend);
       let curUUid = uuidv4().toString();
       setCurId(curUUid);
       let resp = await http.post("/generateotp", {
@@ -240,6 +244,9 @@ const EmailShare = (props) => {
   };
 
   const verifyOTPBackend = async () => {
+    console.log('something')
+    let x = 26
+    let y  =36
     try {
       let resp = await http.post("/validateotp", {
         ...emailData,
@@ -248,9 +255,11 @@ const EmailShare = (props) => {
       let otpVerified = await resp.data;
       if (otpVerified.status == "success") {
         setEmailData({ ...emailData, currentBox: "success" });
+      } else {
+        setOpen({...open, msg: "Sorry not able to verify OTP", isOpen: true});
       }
     } catch (error) {
-      setOpen({ ...open, msg: "Sorry not able to verify OTP" });
+      setOpen({...open, msg: "Sorry not able to verify OTP", isOpen: true });
     }
   };
 
