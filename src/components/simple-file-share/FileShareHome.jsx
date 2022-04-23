@@ -32,13 +32,9 @@ const FileShareHome = () => {
       const resp = await http.post("/createsignedurl", data);
       const preSignedResp = resp.data;
       const preSignedUrl = preSignedResp.presignedUrl;
-      const uploadFileResp = await axios.put(
-        preSignedUrl,
-        { data: file[0] },
-        {
-          headers: { "Content-Type": "binary/octet-stream" },
-        }
-      );
+      const uploadFileResp = await axios.put(preSignedUrl, file[0], {
+        headers: { "Content-Type": file[0].type },
+      });
 
       const fileUploadStatus = uploadFileResp.status;
       if (fileUploadStatus == "200") {
