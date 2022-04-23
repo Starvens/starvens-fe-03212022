@@ -11,6 +11,7 @@ import UserLeftNav from "./components/user-file-upload/UserLeftNav";
 import Privacy from "./components/service-and-privacy/privacy"
 import Service from "./components/service-and-privacy/service"
 import PrivateShare from "./components/simple-file-share/PrivateShare";
+import PublicShare from "./components/simple-file-share/PublicShare";
 
 function App() {
   const theme = createTheme({
@@ -46,7 +47,8 @@ function App() {
           <Route path="/aboutus" element={<AboutUs />}></Route>
           <Route path="/privacy" element={<Privacy />}></Route>
           <Route path="/service" element={<Service />}></Route>
-          <Route path="/share/:id" element={<PrivateShare />}></Route>
+          <Route path="/share/1/:id" element={<PrivateShare />}></Route>
+          <Route path="/share/0/:id" element={<PublicShare />}></Route>
           {/* <Route path="/share/" element={<Service />}></Route> */}
         </Routes>
         {/* <FirstPage></FirstPage>

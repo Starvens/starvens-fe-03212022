@@ -21,14 +21,26 @@ const QRCode1 = (props) => {
         >
           Download the file to your phone by using QR-Code.
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <QRCode value={props.url} logoImage={"Starvens_Logo.webp"} />
-        </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-          <Link sx={{ wordWrap: "break-word", width: "24rem" }}>
-            {props.url}
-          </Link>
-          <ContentCopyIcon sx={{ alignSelf: "center" }} />
+        <Box sx={{display: 'flex'}}>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <QRCode value={props.url} logoImage={"Starvens_Logo.webp"} />
+          </Box>
+          <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+            <Link sx={{ wordWrap: "break-word", width: "24rem" }}>
+              {props.compUrls.priUrl}
+            </Link>
+            <ContentCopyIcon sx={{ alignSelf: "center" }} />
+          </Box>
+
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <QRCode value={props.url} logoImage={"Starvens_Logo.webp"} />
+          </Box>
+          <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+            <Link sx={{ wordWrap: "break-word", width: "24rem" }}>
+              {props.compUrls.pubUrl}
+            </Link>
+            <ContentCopyIcon sx={{ alignSelf: "center" }} />
+          </Box>
         </Box>
       </Box>
     );
@@ -66,12 +78,19 @@ const QRCode1 = (props) => {
               {...label}
             />
             <Typography>
-            I agree to the <a href='/service' target="_blank" rel="noreferrer noopener">Starvens terms</a> and <a href='/privacy' target="_blank" rel="noreferrer noopener">privacy policy.</a>
+              I agree to the{" "}
+              <a href="/service" target="_blank" rel="noreferrer noopener">
+                Starvens terms
+              </a>{" "}
+              and{" "}
+              <a href="/privacy" target="_blank" rel="noreferrer noopener">
+                privacy policy.
+              </a>
             </Typography>
           </Box>
         </Box>
       ) : (
-        <ShowQRCode url={props.url} />
+        <ShowQRCode url={props.url} compUrls={props.compUrls} />
       )}
     </Box>
   );

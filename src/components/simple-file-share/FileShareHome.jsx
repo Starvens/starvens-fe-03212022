@@ -25,6 +25,7 @@ const FileShareHome = () => {
       ipAddress: "127.0.0.1",
       fileSize: siz,
       flatSize: file[0].size,
+      contentType: file[0].type,
       units: units,
     };
     try {
