@@ -17,11 +17,13 @@ import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import http from "../api/starvensBackend";
+import { LoadingButton } from "@mui/lab";
 
 const LinkShareWithHooks = (props) => {
   const {
     control,
     handleSubmit,
+    setError,
     watch,
     formState: { errors },
   } = useForm({
@@ -31,12 +33,24 @@ const LinkShareWithHooks = (props) => {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const watchTypeOfShare = watch("type", "private");
   const watchTcAgreed = watch("isTcAgreed", false);
-  const curPwd = watch("pwd", "");
+  const [load, setLoad] = useState(false);
   const [share, setShare] = useState(false);
+
+  const copyText = async (text) => {
+    await navigator.clipboard.writeText(text);
+    // alert('Text copied');
+  }
+
   const onSubmit = async (data) => {
     try {
-      if (watchTypeOfShare == "private") {
-        let resp = await http.post("/setpwd", { uri: props.url, pwd: curPwd });
+      setLoad(true);
+      if (watchTypeOfShare == "private" || watchTypeOfShare == "public") {
+        let curpassword = data.pwd != "" ? data.pwd : "nopassword";
+        let resp = await http.post("/setpwd", {
+          uri: props.url,
+          pwd: curpassword,
+          msg: data.msg,
+        });
         if (resp.data.status == "success") {
           setShare(true);
           return;
@@ -45,8 +59,10 @@ const LinkShareWithHooks = (props) => {
         }
       }
       setShare(true);
+      setLoad(false);
     } catch (error) {
       console.log(error);
+      setLoad(false);
     }
   };
   const styles = {
@@ -90,7 +106,7 @@ const LinkShareWithHooks = (props) => {
           sx={{
             backgroundColor: "#F8F8F8",
             display: "grid",
-            gridGap: "1rem",
+            gridGap: "0.5rem",
             padding: "0.5rem",
             color: theme.palette.primary.main,
           }}
@@ -125,10 +141,8 @@ const LinkShareWithHooks = (props) => {
                     {...field}
                     row
                     aria-labelledby="demo-row-radio-buttons-group-label"
-                    // {...register("type")}
                     name="row-radio-buttons-group"
                     defaultValue="private"
-                    // onChange={handleChange}
                   >
                     <FormControlLabel
                       value="private"
@@ -149,9 +163,23 @@ const LinkShareWithHooks = (props) => {
             <Controller
               name={"pwd"}
               control={control}
-              rules={{ min: 18 }}
-              render={({ field: { onChange, value } }) => (
-                <TextField onChange={onChange} value={value} />
+              rules={{
+                required: "password must required",
+                minLength: { value: 8, message: "must be atleast 8 chars" },
+              }}
+              render={({
+                field: { onChange, value, ref },
+                fieldState: { error },
+              }) => (
+                <TextField
+                  onChange={onChange}
+                  inputRef={ref}
+                  error={!!error}
+                  placeholder="set a password"
+                  label="setup a password"
+                  helperText={error ? error.message : null}
+                  value={value}
+                />
               )}
             />
           ) : null}
@@ -177,13 +205,15 @@ const LinkShareWithHooks = (props) => {
             </Typography>
           </Box>
           <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <Button
+            <LoadingButton
               disabled={!watchTcAgreed}
               variant="contained"
+              loading={load}
+              loadingPosition="end"
               onClick={handleSubmit(onSubmit)}
             >
-              get link
-            </Button>
+              Get Link
+            </LoadingButton>
           </Box>
         </Box>
       </form>
@@ -194,22 +224,22 @@ const LinkShareWithHooks = (props) => {
     return (
       <Box sx={styles.afterBox}>
         <Typography sx={styles.boxHead}>You are all set!</Typography>
-        <Box sx={{display: 'flex', flexDirection: 'column'}}>
-            <Typography>Private Url:</Typography>
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <Typography>Private Url:</Typography>
           <Box sx={styles.urlBox}>
             <Typography sx={{ width: "25rem", wordWrap: "break-word" }}>
               {props.compUrls.priUrl}
             </Typography>
-            <IconButton>
+            <IconButton onClick={() => copyText(props.compUrls.priUrl)}>
               <ContentCopyIcon sx={{ alignSelf: "center" }} />
             </IconButton>
           </Box>
-            <Typography>Public Url:</Typography>
+          <Typography>Public Url:</Typography>
           <Box sx={styles.urlBox}>
             <Typography sx={{ width: "25rem", wordWrap: "break-word" }}>
               {props.compUrls.pubUrl}
             </Typography>
-            <IconButton>
+            <IconButton onClick={() => copyText(props.compUrls.pubUrl)}>
               <ContentCopyIcon sx={{ alignSelf: "center" }} />
             </IconButton>
           </Box>

@@ -5,6 +5,10 @@ import {
   Button,
   IconButton,
   InputAdornment,
+  Card,
+  CardContent,
+  CardActions,
+  Typography,
 } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -12,34 +16,57 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import http from "../api/starvensBackend";
 import axios from "axios";
+import { LoadingButton } from "@mui/lab";
 
 const PublicShare = () => {
   const theme = useTheme();
   const location = useLocation();
   const [publicUri, setPublicUri] = useState();
+  const [downloading, setDown] = useState(false);
   const navigate = useNavigate();
 
   let fileDetails = () => {
     return (
-      <Box
-        sx={{
-          display: "flex",
-          width: "20rem",
-          justifyContent: "space-between",
-        }}
-      >
-        <Box>{publicUri.fileName}</Box>
+      <Card>
         <Box>
-          {publicUri.fileSize} {publicUri.fileUnits}
+          <Typography
+            variant="h4"
+            component="div"
+            sx={{ color: theme.palette.primary.main, textAlign: "center" }}
+          >
+            Your file
+          </Typography>
+          <Typography
+            variant="h6"
+            color="text.secondary"
+            component="div"
+            sx={{textAlign: 'center'}}
+          >
+            {publicUri.optMsg}
+          </Typography>
         </Box>
-        <Button variant="contained" onClick={downloadFile}>
-          Download
-        </Button>
-      </Box>
+        <CardContent sx={styles.cardCont}>
+          <Typography variant="h6" component="div" sx={styles.fileName}>
+            {publicUri.fileName}
+          </Typography>
+          <Typography variant="h5" component="div" sx={styles.fileName}>
+            {publicUri.fileSize} {publicUri.fileUnits}
+          </Typography>
+          <LoadingButton
+            sx={{ alignSelf: "center" }}
+            loading={downloading}
+            onClick={downloadFile}
+            variant="contained"
+          >
+            Download
+          </LoadingButton>
+        </CardContent>
+      </Card>
     );
   };
 
   let downloadFile = async () => {
+    setDown(true);
     axios({
       url: publicUri.presignedUrl,
       method: "GET",
@@ -51,6 +78,7 @@ const PublicShare = () => {
       link.setAttribute("download", publicUri.fileName);
       document.body.appendChild(link);
       link.click();
+      setDown(false);
     });
   };
 
@@ -83,6 +111,18 @@ const PublicShare = () => {
       justifyContent: "center",
       alignItems: "center",
       marginTop: "5rem",
+    },
+    fileName: {
+      fontFamily: "Montserrat",
+    },
+    cardCont: {
+      display: "flex",
+      justifyContent: "space-between",
+      width: "100vh",
+      display: "flex",
+      justifyContent: "space-around",
+      fontFamily: "Montserrat",
+      columnGap: "2rem",
     },
   };
 
