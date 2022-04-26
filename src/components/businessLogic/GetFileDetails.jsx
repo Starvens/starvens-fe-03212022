@@ -12,3 +12,7 @@ export const getSize = (siz) => {
     return [siz, "Bytes"];
   }
 };
+
+export const copyText = async (text) => {
+  await navigator.clipboard.writeText(text);
+};

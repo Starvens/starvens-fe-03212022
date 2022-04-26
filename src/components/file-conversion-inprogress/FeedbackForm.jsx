@@ -2,9 +2,14 @@ import { useTheme } from "@emotion/react";
 import StarIcon from "@mui/icons-material/Star";
 import { Box, Button, Divider, TextField, Typography } from "@mui/material";
 import Rating from "@mui/material/Rating";
-import React from "react";
+import React, { useState } from "react";
+import { LoadingButton } from "@mui/lab";
+import http from "../api/starvensBackend";
+import Snackbar from "@mui/material/Snackbar";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
-const FeedbackForm = () => {
+const FeedbackForm = (props) => {
   const theme = useTheme();
   const labels = {
     0.5: "Useless",
@@ -20,10 +25,56 @@ const FeedbackForm = () => {
   };
   const [value, setValue] = React.useState(2);
   const [hover, setHover] = React.useState(-1);
+  const [fbData, setFbData] = React.useState({ rating: "", comments: "" });
+  const [loading, setLoading] = React.useState(false);
+  const [open, setOpen] = useState({ msg: "", isOpen: false });
 
   function getLabelText(value) {
     return `${value} Star${value !== 1 ? "s" : ""}, ${labels[value]}`;
   }
+
+  const action = (
+    <React.Fragment>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={() => setOpen({ ...open, isOpen: false })}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
+
+  const sendFeedback = async () => {
+    try {
+      setLoading(true);
+      let resp = await http.post("/feedback", {
+        rating: value,
+        comments: fbData.comments,
+        place: props.place
+      });
+      if (resp.data.status == "success") {
+        setLoading(false);
+        setOpen({
+          isOpen: true,
+          msg: "Thank you for your feedback! We strive to improve continuously for customer satisfaction.",
+        });
+      } else {
+        setLoading(false);
+        setOpen({
+          isOpen: true,
+          msg: "Sorry please try again later, we value your feedback",
+        });
+      }
+    } catch (error) {
+      setLoading(false);
+      setOpen({
+        isOpen: true,
+        msg: "Sorry please try again later, we value your feedback",
+      });
+    }
+  };
   return (
     <Box
       sx={{
@@ -72,10 +123,24 @@ const FeedbackForm = () => {
         multiline
         sx={{ padding: "1rem" }}
         fullWidth
+        onChange={(e) => setFbData({ ...fbData, comments: e.target.value })}
         rows={4}
         placeholder="Optional, any feedback is appreciated"
       />
-      <Button variant="contained">Submit</Button>
+      <LoadingButton
+        loading={loading}
+        onClick={sendFeedback}
+        variant="contained"
+      >
+        Submit
+      </LoadingButton>
+      <Snackbar
+        open={open.isOpen}
+        autoHideDuration={6000}
+        onClose={() => setOpen({ ...open, isOpen: false })}
+        message={open.msg}
+        action={action}
+      />
     </Box>
   );
 };

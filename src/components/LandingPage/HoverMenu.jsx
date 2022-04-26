@@ -1,10 +1,13 @@
 import { Box } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const HoverMenu = (props) => {
   const items = props.options.map((x) => <div key={x}>{x}</div>);
+  const nagivate = useNavigate();
   return (
     <Box
+      onClick={() => nagivate("/share", { state: { data: "simpleFileShare" } })}
       sx={{
         display: "flex",
         background: "#C1E1C1",

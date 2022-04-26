@@ -20,7 +20,15 @@ const AboutUs = () => {
     },
   };
 
-  const people = ["Sai", "Adithya", "Rajesh", "Akash", "Meghana"];
+  const people = [
+    "Sai",
+    "Adithya",
+    "Rajesh",
+    "Akash",
+    "Meghana",
+    "Prateek",
+    "Varshini",
+  ];
 
   return (
     <>
@@ -28,7 +36,7 @@ const AboutUs = () => {
       <Box sx={{ marginTop: "6rem", padding: "2rem" }}>
         <Typography sx={styles.heading}>Where customer's comfort</Typography>
         <Typography sx={styles.heading}>lies</Typography>
-        <Typography sx={styles.text}>
+        <Typography sx={{ ...styles.text, width: "70%" }}>
           Starvens was founded with the intention of revolutionizing the
           customer's online experience by bringing all platforms together and
           prioritizing simplicity with convenience. To build this goal, our
@@ -54,15 +62,23 @@ const AboutUs = () => {
             </Typography>
           </Box>
         </Box>
-        <Box sx={{marginTop: '5rem', marginBottom: '5rem'}}>
+        <Box sx={{ marginTop: "5rem", marginBottom: "5rem" }}>
           <Typography sx={styles.heading}>Meet the Team</Typography>
-          <Box sx={{display: 'flex', justifyContent: 'space-around', marginTop: '3rem'}}>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              marginTop: "3rem",
+            }}
+          >
             {people.map((us1) => (
               <Box
                 sx={{
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  margin: "2rem",
                 }}
               >
                 <img src="/userPic.webp"></img>

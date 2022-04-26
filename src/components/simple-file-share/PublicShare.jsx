@@ -17,6 +17,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import http from "../api/starvensBackend";
 import axios from "axios";
 import { LoadingButton } from "@mui/lab";
+import FeedbackForm from "../file-conversion-inprogress/FeedbackForm";
 
 const PublicShare = () => {
   const theme = useTheme();
@@ -27,7 +28,7 @@ const PublicShare = () => {
 
   let fileDetails = () => {
     return (
-      <Card>
+      <Card sx={{borderRadius: '1rem'}}>
         <Box>
           <Typography
             variant="h4"
@@ -40,7 +41,7 @@ const PublicShare = () => {
             variant="h6"
             color="text.secondary"
             component="div"
-            sx={{textAlign: 'center'}}
+            sx={{ textAlign: "center" }}
           >
             {publicUri.optMsg}
           </Typography>
@@ -134,6 +135,9 @@ const PublicShare = () => {
         </Box>
       </Box>
       <Box sx={styles.pwdBox}>{publicUri ? fileDetails() : null}</Box>
+      <Box sx={{ width: "70%", marginLeft: "auto", marginRight: "auto" }}>
+        <FeedbackForm place={"publicFileDownload"}></FeedbackForm>
+      </Box>
     </Box>
   );
 };

@@ -6,9 +6,9 @@ import HoverMenu from "./HoverMenu";
 const NavBar = () => {
   const x = ["first", "second"];
   const menuOptions = {
-    products: ["Text to Audio", "Audio To Text"],
+    products: ["Simple FileShare"],
     company: ["About", "Contact"],
-    signin: ["Signin", "Create Account"],
+    signin: [],
   };
   const navigate = useNavigate();
   const [navMenu, setNavMenu] = useState({
@@ -55,7 +55,7 @@ const NavBar = () => {
                   marginTop: "1.5rem",
                   fontSize: "20px",
                   fontFamily: "Lucida Sans",
-                  cursor: 'pointer'
+                  cursor: "pointer",
                 }}
               >
                 Products
@@ -77,7 +77,7 @@ const NavBar = () => {
                     fontFamily: "Lucida Sans",
                   }}
                 >
-                  About us
+                  About
                 </Typography>
               </Box>
             </Box>
@@ -94,13 +94,13 @@ const NavBar = () => {
                 }}
               />
             </Box>
-            <Box sx={{ marginLeft: "2rem" }}>
+            <Box sx={{display: 'flex', marginLeft: '18rem'}}>
               <Typography
                 onMouseEnter={() => setNavMenu({ ...navMenu, signin: true })}
                 onMouseLeave={() => setNavMenu({ ...navMenu, signin: false })}
                 sx={{
                   fontWeight: "bold",
-                  marginLeft: "16rem",
+                  // marginLeft: "16rem",
                   marginTop: "1.5rem",
                   fontSize: "20px",
                   fontFamily: "Lucida Sans",
@@ -108,7 +108,23 @@ const NavBar = () => {
               >
                 Sign in
                 {navMenu.signin ? (
-                  <HoverMenu options={menuOptions.products}></HoverMenu>
+                  <HoverMenu options={menuOptions.signin}></HoverMenu>
+                ) : null}
+              </Typography>
+              <Typography
+                onMouseEnter={() => setNavMenu({ ...navMenu, signin: true })}
+                onMouseLeave={() => setNavMenu({ ...navMenu, signin: false })}
+                sx={{
+                  fontWeight: "bold",
+                  marginLeft: "9rem",
+                  marginTop: "1.5rem",
+                  fontSize: "20px",
+                  fontFamily: "Lucida Sans",
+                }}
+              >
+                Sign up 
+                {navMenu.signin ? (
+                  <HoverMenu options={menuOptions.signin}></HoverMenu>
                 ) : null}
               </Typography>
             </Box>

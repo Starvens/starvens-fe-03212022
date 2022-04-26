@@ -23,14 +23,14 @@ export const ThirdPage = () => {
               fontFamily: "Montserrat",
             }}
           >
-            Manage your files at one location
+           you can manage your files at one location very soon
           </Typography>
           <Typography
             sx={{
               fontWeight: "bold",
               marginLeft: "2rem",
               color: "#355E3B",
-              fontSize: "25px",
+              fontSize: "20px",
               fontFamily: "Montserrat",
             }}
           >
@@ -42,7 +42,7 @@ export const ThirdPage = () => {
           <img src="/StoreAndShare.webp" height="400" width="550"></img>
         </Box>
       </Box>
-      <Box sx={{ background: "#355E3B 0% 0% no-repeat padding-box" }}>
+      <Box sx={{ background: "#355E3B 0% 0% no-repeat padding-box", padding: '4rem' }}>
         <Typography
           sx={{
             fontWeight: "bold",

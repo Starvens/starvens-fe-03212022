@@ -27,11 +27,23 @@ const SuccessFileShareOptions = (props) => {
   const getComponent = (curState) => {
     switch (curState) {
       case "email":
-        return <EmailShare url={props.publicUrl} compUrls={allUrls} />;
+        return (
+          <Box sx={{ display: "flex", justifyContent: "flex-start" }}>
+            <EmailShare url={props.publicUrl} compUrls={allUrls} />
+          </Box>
+        );
       case "qrCode":
-        return <QRCode1 url={props.publicUrl} compUrls={allUrls} />;
+        return (
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <QRCode1 url={props.publicUrl} compUrls={allUrls} />
+          </Box>
+        );
       case "linkShare":
-        return <LinkShareWithHooks url={props.publicUrl} compUrls={allUrls} />;
+        return (
+          <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+            <LinkShareWithHooks url={props.publicUrl} compUrls={allUrls} />
+          </Box>
+        );
       default:
         return null;
     }
@@ -39,13 +51,17 @@ const SuccessFileShareOptions = (props) => {
   return (
     <Box>
       <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-        <Button onClick={() => setShareOption("email")}>Email</Button>
-        <Button onClick={() => setShareOption("qrCode")}>QR code</Button>
-        <Button onClick={() => setShareOption("linkShare")}>Link</Button>
+        <Button variant="contained" onClick={() => setShareOption("email")}>
+          Email
+        </Button>
+        <Button variant="contained" onClick={() => setShareOption("qrCode")}>
+          QR code
+        </Button>
+        <Button variant="contained" onClick={() => setShareOption("linkShare")}>
+          Link
+        </Button>
       </Box>
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
-        {getComponent(curOpt)}
-      </Box>
+      {getComponent(curOpt)}
     </Box>
   );
 };

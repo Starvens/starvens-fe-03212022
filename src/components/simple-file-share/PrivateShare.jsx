@@ -18,6 +18,7 @@ import axios from "axios";
 import Snackbar from "@mui/material/Snackbar";
 import { LoadingButton } from "@mui/lab";
 import CloseIcon from "@mui/icons-material/Close";
+import FeedbackForm from "../file-conversion-inprogress/FeedbackForm";
 
 const PrivateShare = () => {
   const theme = useTheme();
@@ -202,6 +203,9 @@ const PrivateShare = () => {
         />
       </Box>
       <Box sx={styles.pwdBox}>{fileDetails ? fileDetailsJsx() : pwdBox()}</Box>
+      <Box sx={{ width: "70%", marginLeft: "auto", marginRight: "auto" }}>
+        <FeedbackForm place={"privateFileDownload"}></FeedbackForm>
+      </Box>
     </Box>
   );
 };

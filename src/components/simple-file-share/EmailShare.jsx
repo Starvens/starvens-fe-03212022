@@ -7,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { v4 as uuidv4 } from "uuid";
 import { useTheme } from "@emotion/react";
+import { LoadingButton } from "@mui/lab";
 
 const EmailShare = (props) => {
   const [open, setOpen] = useState({ msg: "", isOpen: false });
@@ -21,6 +22,7 @@ const EmailShare = (props) => {
     usersOtp: "",
     fileLocation: props.url,
   });
+  const [loading, setLoading] = useState(false)
   const [disableSend, setDisableSend] = useState(false);
   const [curId, setCurId] = useState("");
   const styles = {
@@ -157,13 +159,22 @@ const EmailShare = (props) => {
             width: "30rem",
           }}
         >
-          <Button
+            <LoadingButton
+              variant="contained"
+              loading={loading}
+              sx={styles.buttonPadding}
+              loadingPosition="end"
+              onClick={() => verifyOTPBackend()}
+            >
+              verify otp
+            </LoadingButton>
+          {/* <Button
             onClick={() => verifyOTPBackend()}
             variant="contained"
             sx={styles.buttonPadding}
           >
             Verify OTP
-          </Button>
+          </Button> */}
           <Button variant="contained" sx={styles.buttonPadding}>
             Resend OTP
           </Button>
@@ -244,22 +255,24 @@ const EmailShare = (props) => {
   };
 
   const verifyOTPBackend = async () => {
-    console.log('something')
-    let x = 26
-    let y  =36
+    setLoading(true)
     try {
       let resp = await http.post("/validateotp", {
         ...emailData,
+        consId: props.url,
         curId: curId,
       });
       let otpVerified = await resp.data;
       if (otpVerified.status == "success") {
+        setLoading(false)
         setEmailData({ ...emailData, currentBox: "success" });
       } else {
         setOpen({...open, msg: "Sorry not able to verify OTP", isOpen: true});
+        setLoading(false)
       }
     } catch (error) {
       setOpen({...open, msg: "Sorry not able to verify OTP", isOpen: true });
+        setLoading(false)
     }
   };
 
@@ -276,7 +289,7 @@ const EmailShare = (props) => {
     }
   };
 
-  return <Box>{getEmailComponent()}</Box>;
+  return <Box sx={{marginTop: '5px'}}>{getEmailComponent()}</Box>;
 };
 
 export default EmailShare;

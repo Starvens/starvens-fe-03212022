@@ -188,7 +188,7 @@ export default function UserLeftNav() {
           >
             StarvensDrive
           </Typography>
-          <OutlinedInput
+          {/* <OutlinedInput
             startAdornment={<SearchIcon />}
             sx={{
               font: "normal normal bold 20px/24px Montserrat",
@@ -208,8 +208,8 @@ export default function UserLeftNav() {
             >
               <SettingsIcon />
             </IconButton>
-          </OutlinedInput>
-          <Box sx={{ marginLeft: "auto" }}>
+          </OutlinedInput> */}
+          {/* <Box sx={{ marginLeft: "auto" }}>
             <IconButton
               edge="start"
               color="inherit"
@@ -226,7 +226,7 @@ export default function UserLeftNav() {
             >
               <AccountCircleIcon fontSize="large" />
             </IconButton>
-          </Box>
+          </Box> */}
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
@@ -258,7 +258,8 @@ export default function UserLeftNav() {
         </DrawerHeader>
         <Divider />
         <List>
-          {["Home", "My Files", "Recent", "Shared", "Recycle Bin"].map(
+          {/* {["Home", "My Files", "Recent", "Shared", "Recycle Bin"].map( */}
+          {["Home"].map(
             (text, index) => (
               <ListItemButton
                 key={text}
@@ -283,11 +284,11 @@ export default function UserLeftNav() {
             )
           )}
         </List>
-        <BorderLinearProgress
+        {/* <BorderLinearProgress
           sx={{ margin: "1rem", marginTop: "auto" }}
           variant="determinate"
           value={50}
-        />
+        /> */}
         {open ? (
           <Typography
             sx={{
@@ -297,7 +298,7 @@ export default function UserLeftNav() {
               textAlign: "center",
             }}
           >
-            100MB used of 1 GB
+            {/* 100MB used of 1 GB */}
           </Typography>
         ) : null}
       </Drawer>

@@ -4,7 +4,7 @@ import "./App.css";
 import GenerateQRCodeTemp from "./components/file-conversion-inprogress/GenerateQRCodeTemp";
 import AboutUs from "./components/LandingPage/AboutUs";
 import LandingPage from "./components/LandingPage/LandingPage";
-import { Login } from "./components/LandingPage/Login";
+import { Login } from "./components/login/Login";
 import { Register } from "./components/LandingPage/Register";
 import UserFileUpload from "./components/user-file-upload/UserFileUpload";
 import UserLeftNav from "./components/user-file-upload/UserLeftNav";
@@ -46,6 +46,7 @@ function App() {
           <Route path="/qrcode" element={<GenerateQRCodeTemp />}></Route>
           <Route path="/aboutus" element={<AboutUs />}></Route>
           <Route path="/privacy" element={<Privacy />}></Route>
+          <Route path="/login" element={<Login />}></Route>
           <Route path="/service" element={<Service />}></Route>
           <Route path="/share/1/:id" element={<PrivateShare />}></Route>
           <Route path="/share/0/:id" element={<PublicShare />}></Route>

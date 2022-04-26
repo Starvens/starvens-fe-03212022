@@ -12,12 +12,14 @@ import {
   Radio,
   RadioGroup,
   Typography,
+  Link,
 } from "@mui/material";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import http from "../api/starvensBackend";
 import { LoadingButton } from "@mui/lab";
+import { copyText } from "../businessLogic/GetFileDetails";
 
 const LinkShareWithHooks = (props) => {
   const {
@@ -35,11 +37,6 @@ const LinkShareWithHooks = (props) => {
   const watchTcAgreed = watch("isTcAgreed", false);
   const [load, setLoad] = useState(false);
   const [share, setShare] = useState(false);
-
-  const copyText = async (text) => {
-    await navigator.clipboard.writeText(text);
-    // alert('Text copied');
-  }
 
   const onSubmit = async (data) => {
     try {
@@ -85,6 +82,7 @@ const LinkShareWithHooks = (props) => {
       display: "flex",
       padding: "1rem",
       justifyContent: "center",
+      borderRadius: "1rem",
       flexDirection: "column",
       maxWidth: "40rem",
     },
@@ -108,6 +106,7 @@ const LinkShareWithHooks = (props) => {
             display: "grid",
             gridGap: "0.5rem",
             padding: "0.5rem",
+            borderRadius: '1rem',
             color: theme.palette.primary.main,
           }}
         >
@@ -195,13 +194,13 @@ const LinkShareWithHooks = (props) => {
             />
             <Typography>
               I agree to the{" "}
-              <a href="/service" target="_blank" rel="noreferrer noopener">
+              <Link href="/service" target="_blank" rel="noreferrer noopener">
                 Starvens terms
-              </a>{" "}
+              </Link>{" "}
               and{" "}
-              <a href="/privacy" target="_blank" rel="noreferrer noopener">
+              <Link href="/privacy" target="_blank" rel="noreferrer noopener">
                 privacy policy.
-              </a>
+              </Link>
             </Typography>
           </Box>
           <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -227,18 +226,28 @@ const LinkShareWithHooks = (props) => {
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <Typography>Private Url:</Typography>
           <Box sx={styles.urlBox}>
-            <Typography sx={{ width: "25rem", wordWrap: "break-word" }}>
+            <Link
+              href={props.compUrls.priUrl}
+              underline="none"
+              target="_blank"
+              sx={{ wordWrap: "break-word", width: "18rem" }}
+            >
               {props.compUrls.priUrl}
-            </Typography>
+            </Link>
             <IconButton onClick={() => copyText(props.compUrls.priUrl)}>
               <ContentCopyIcon sx={{ alignSelf: "center" }} />
             </IconButton>
           </Box>
           <Typography>Public Url:</Typography>
           <Box sx={styles.urlBox}>
-            <Typography sx={{ width: "25rem", wordWrap: "break-word" }}>
+            <Link
+              href={props.compUrls.pubUrl}
+              underline="none"
+              target="_blank"
+              sx={{ wordWrap: "break-word", width: "18rem" }}
+            >
               {props.compUrls.pubUrl}
-            </Typography>
+            </Link>
             <IconButton onClick={() => copyText(props.compUrls.pubUrl)}>
               <ContentCopyIcon sx={{ alignSelf: "center" }} />
             </IconButton>
@@ -255,7 +264,11 @@ const LinkShareWithHooks = (props) => {
     );
   };
 
-  return <Box>{share ? <AfterShare /> : <BeforeShare />}</Box>;
+  return (
+    <Box sx={{ marginRight: "10rem"}}>
+      {share ? <AfterShare /> : <BeforeShare />}
+    </Box>
+  );
 };
 
 export default LinkShareWithHooks;
