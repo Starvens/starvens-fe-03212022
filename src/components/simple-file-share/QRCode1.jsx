@@ -56,7 +56,10 @@ const QRCode1 = (props) => {
               </IconButton>
             </Box>
             <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <QRCode value={props.url} logoImage={"Starvens_Logo.webp"} />
+              <QRCode
+                value={props.compUrls.pubUrl}
+                logoImage={"Starvens_Logo.webp"}
+              />
             </Box>
           </Box>
         </Box>
