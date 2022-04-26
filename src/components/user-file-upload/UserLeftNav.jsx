@@ -188,6 +188,17 @@ export default function UserLeftNav() {
           >
             StarvensDrive
           </Typography>
+          <Typography
+            sx={{
+              font: "normal normal bold 20px/34px Montserrat",
+              marginLeft: "15rem",
+              alignSelf: 'flex-end',
+              color: "#F8F8F8",
+              textAlign: "center",
+            }}
+          >
+            Simple FileShare
+          </Typography>
           {/* <OutlinedInput
             startAdornment={<SearchIcon />}
             sx={{

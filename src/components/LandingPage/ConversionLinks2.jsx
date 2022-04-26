@@ -60,7 +60,7 @@ const ConversionLinks2 = () => {
               <img src="fileShare.webp"></img>
             </Box>
             <Link
-              to="/share"
+              to="/login"
               style={{ textDecoration: "none" }}
               state={{ data: "simpleFileShare" }}
             >

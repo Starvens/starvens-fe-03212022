@@ -39,7 +39,7 @@ const NavBar = () => {
               <Box sx={{ cursor: "pointer" }}>
                 <img
                   onClick={() => navigate("/")}
-                  src="HeaderLogoAndName.webp"
+                  src="HeaderForLogo.webp"
                   width="193"
                   height="70"
                 ></img>
@@ -94,38 +94,35 @@ const NavBar = () => {
                 }}
               />
             </Box>
-            <Box sx={{display: 'flex', marginLeft: '18rem'}}>
+            <Box sx={{ display: "flex", marginLeft: "15rem" }}>
               <Typography
                 onMouseEnter={() => setNavMenu({ ...navMenu, signin: true })}
                 onMouseLeave={() => setNavMenu({ ...navMenu, signin: false })}
+                onClick = {() => navigate('/login')}
                 sx={{
                   fontWeight: "bold",
-                  // marginLeft: "16rem",
+                  cursor: 'pointer',
                   marginTop: "1.5rem",
                   fontSize: "20px",
                   fontFamily: "Lucida Sans",
                 }}
               >
                 Sign in
-                {navMenu.signin ? (
-                  <HoverMenu options={menuOptions.signin}></HoverMenu>
-                ) : null}
               </Typography>
               <Typography
                 onMouseEnter={() => setNavMenu({ ...navMenu, signin: true })}
                 onMouseLeave={() => setNavMenu({ ...navMenu, signin: false })}
+                onClick={() => navigate('/login')}
                 sx={{
                   fontWeight: "bold",
-                  marginLeft: "9rem",
+                  marginLeft: "4rem",
                   marginTop: "1.5rem",
+                  cursor: 'pointer',
                   fontSize: "20px",
                   fontFamily: "Lucida Sans",
                 }}
               >
-                Sign up 
-                {navMenu.signin ? (
-                  <HoverMenu options={menuOptions.signin}></HoverMenu>
-                ) : null}
+                Sign up
               </Typography>
             </Box>
           </Box>
