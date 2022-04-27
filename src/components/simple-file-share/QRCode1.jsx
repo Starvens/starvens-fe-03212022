@@ -19,7 +19,7 @@ const QRCode1 = (props) => {
             textAlign: "center",
             font: "normal normal bold 16px/19px Montserrat",
             color: theme.palette.primary.main,
-            padding: "1rem",
+            padding: "5px",
           }}
         >
           Download the file to your phone by using QR-Code.
@@ -37,7 +37,7 @@ const QRCode1 = (props) => {
                 textAlign: "center",
                 font: "normal normal bold 16px/19px Montserrat",
                 color: theme.palette.primary.main,
-                padding: "1rem",
+                // padding: "1rem",
               }}
             >
               Public link
@@ -47,7 +47,7 @@ const QRCode1 = (props) => {
                 href={props.compUrls.pubUrl}
                 underline="none"
                 target="_blank"
-                sx={{ wordWrap: "break-word", width: "18rem" }}
+                sx={{ wordWrap: "break-word"}}
               >
                 {props.compUrls.pubUrl}
               </Link>
